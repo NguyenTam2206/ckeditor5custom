@@ -71,5 +71,8 @@
   "scripts": {
     "build": "webpack --mode production",
     "preversion": "npm run build"
+  },
+  "dependencies": {
+    "ckeditor_bs_grid": "github:tranhanam19999/ckeditor-bs-grid#master"
   }
 }

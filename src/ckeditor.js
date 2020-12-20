@@ -30,6 +30,7 @@ import Table from '@ckeditor/ckeditor5-table/src/table';
 import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
 import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformation';
 
+import SimpleBtn from './_utils/simplebtn'
 import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment'; 
 
 export default class ClassicEditor extends ClassicEditorBase {}
@@ -59,7 +60,8 @@ ClassicEditor.builtinPlugins = [
 	Table,
 	TableToolbar,
 	TextTransformation,
-	Alignment //Them 
+	Alignment,
+	SimpleBtn //Them 
 ];
 
 // Editor configuration.
@@ -68,6 +70,7 @@ ClassicEditor.defaultConfig = {
 		items: [
 			'heading',
 			'|',
+			'simpleBtn',
 			'alignment', //Nam them
 			'bold',
 			'italic',
