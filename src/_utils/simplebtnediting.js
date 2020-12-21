@@ -32,21 +32,21 @@ export default class SimpleBtnEditing extends Plugin {
         conversion.for('upcast').elementToElement( {
             model: 'simpleBtn',
             view: {
-                name: 'img',
+                name: 'div',
                 classes: 'my-custom-box'
             }
         } )
         conversion.for('dataDowncast').elementToElement( {
             model: 'simpleBtn',
             view: {
-                name: 'img',
+                name: 'div',
                 classes: 'my-custom-box'
             }
         } )
         conversion.for( 'editingDowncast' ).elementToElement( {
             model: 'simpleBtn',
             view: ( modelElement, { writer: viewWriter } ) => {
-                const section = viewWriter.createContainerElement( 'img', { class: 'my-custom-box' } );
+                const section = viewWriter.createContainerElement( 'div', { class: 'my-custom-box' } );
 
                 return toWidget( section, viewWriter, { label: 'simple btn widget' } );
             }
