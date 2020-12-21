@@ -12,7 +12,7 @@ export default class SimpleBtnUI extends Plugin {
         // to be displayed in the toolbar.
         editor.ui.componentFactory.add( 'simpleBtn', locale => {
             // The state of the button will be bound to the widget command.
-            //const command = editor.commands.get( 'insertSimpleBox' );
+            const command = editor.commands.get( 'insertSimpleBtn' );
 
             // The button will be an instance of ButtonView.
             const buttonView = new ButtonView( locale );
@@ -26,11 +26,14 @@ export default class SimpleBtnUI extends Plugin {
             } );
 
             // Bind the state of the button to the command.
-            //buttonView.bind( 'isOn', 'isEnabled' ).to( command, 'value', 'isEnabled' );
+            buttonView.bind( 'isOn', 'isEnabled' ).to( command, 'value', 'isEnabled' );
 
             // Execute the command when the button is clicked (executed).
-            //this.listenTo( buttonView, 'execute', () => editor.execute( 'insertSimpleBox' ) );
-            this.listenTo(buttonView, 'execute', () => sessionStorage.setItem('openMedia', true))
+            this.listenTo(buttonView, 'execute', () => {
+                sessionStorage.setItem('openMedia', true)
+                editor.execute('insertSimpleBtn')
+            })
+
             return buttonView;
         } );
     }

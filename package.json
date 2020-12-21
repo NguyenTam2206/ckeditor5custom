@@ -1,6 +1,6 @@
 {
-  "name": "@ckeditor/ckeditor5-build-custom",
-  "version": "24.0.0",
+  "name": "@tranhanam19999/build-custom",
+  "version": "1.0.0",
   "description": "The classic editor build of CKEditor 5 – the best browser-based rich text editor.",
   "keywords": [
     "ckeditor5-build",
@@ -73,6 +73,7 @@
     "preversion": "npm run build"
   },
   "dependencies": {
+    "@ckeditor/ckeditor5-widget": "^24.0.0",
     "ckeditor_bs_grid": "github:tranhanam19999/ckeditor-bs-grid#master"
   }
 }
