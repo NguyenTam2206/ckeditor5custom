@@ -24,7 +24,9 @@ export default class SimpleBtnEditing extends Plugin {
         schema.register('simpleBtn', {
             isObject: true,
             allowWhere: '$block',
-            allowAtrributes: [ 'style' ]
+            allowAtrributes: [ 'style' ],
+            allowContentOf: '$block',
+	        allowAttributesOf: '$block'
         })
     }
     _defineConverters() {
