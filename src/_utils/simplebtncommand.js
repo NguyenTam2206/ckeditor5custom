@@ -23,6 +23,6 @@ function createSimpleBtn( writer ) {
     writer.append(simpleBtnImage, simpleBtn)
     writer.append(simpleBtnCaption, simpleBtn)
 
-    writer.append('Your image caption' , simpleBtnCaption)
+    writer.appendElement('paragraph' , simpleBtnCaption)
     return simpleBtn
 } 
