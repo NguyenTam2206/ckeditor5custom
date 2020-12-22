@@ -27,6 +27,11 @@ export default class SimpleBtnEditing extends Plugin {
             allowWhere: '$block',
             allowAtrributes: [ 'style' ]
         })
+        schema.register('contentImage' , {
+            isLimit: true,
+
+            allowIn: 'simpleBtn',
+        })
     }
     _defineConverters() {
         const conversion = this.editor.conversion;
@@ -48,9 +53,31 @@ export default class SimpleBtnEditing extends Plugin {
         conversion.for( 'editingDowncast' ).elementToElement( {
             model: 'simpleBtn',
             view: ( modelElement, { writer: viewWriter } ) => {
-                const section = viewWriter.createAttributeElement( 'div', { class: 'my-custom-box' } );
+                const section = viewWriter.createContainerElement( 'div', { class: 'my-custom-box' , style: "width:300px;height:300px;display:inline-block"});
 
-                return toWidgetEditable( section, viewWriter, { label: 'simple btn widget' } );
+                return toWidget( section, viewWriter, { label: 'simple btn widget' } );
+            }
+        } );
+        conversion.for('upcast').elementToElement( {
+            model: 'contentImage',
+            view: {
+                name: 'div',
+                classes: 'image-inside'
+            }
+        } )
+        conversion.for('dataDowncast').elementToElement( {
+            model: 'contentImage',
+            view: {
+                name: 'div',
+                classes: 'image-inside'
+            }
+        } )
+        conversion.for( 'editingDowncast' ).elementToElement( {
+            model: 'contentImage',
+            view: ( modelElement, { writer: viewWriter } ) => {
+                const section = viewWriter.createAttributeElement( 'div', { class: 'image-inside' , style: "width:300px;height:300px;display:inline-block"});
+
+                return toWidgetEditable( section, viewWriter);
             }
         } );
     }
