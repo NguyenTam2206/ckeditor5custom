@@ -25,9 +25,7 @@ export default class SimpleBtnEditing extends Plugin {
             isObject: true,
             isBlock: true,
             allowWhere: '$block',
-            allowAtrributes: [ 'style' ],
-            allowContentOf: '$block',
-	        allowAttributesOf: '$block'
+            allowAtrributes: [ 'style' ]
         })
     }
     _defineConverters() {
