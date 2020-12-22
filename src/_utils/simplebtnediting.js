@@ -31,7 +31,7 @@ export default class SimpleBtnEditing extends Plugin {
             isLimit: true,
             isBlock: true,
             isObject: true,
-            
+
             allowIn: 'simpleBtn',
 
             allowContentOf: '$block'
@@ -57,7 +57,7 @@ export default class SimpleBtnEditing extends Plugin {
         conversion.for( 'editingDowncast' ).elementToElement( {
             model: 'simpleBtn',
             view: ( modelElement, { writer: viewWriter } ) => {
-                const section = viewWriter.createContainerElement( 'div', { class: 'my-custom-box' , style: "width:300px;height:300px;display:inline-block"});
+                const section = viewWriter.createContainerElement( 'div', { class: 'my-custom-box' , style: "display:inline-block"});
 
                 return toWidget( section, viewWriter, { label: 'simple btn widget' } );
             }
@@ -79,7 +79,7 @@ export default class SimpleBtnEditing extends Plugin {
         conversion.for( 'editingDowncast' ).elementToElement( {
             model: 'contentImage',
             view: ( modelElement, { writer: viewWriter } ) => {
-                const section = viewWriter.createAttributeElement( 'div', { class: 'image-inside' , style: "width:300px;height:300px;display:inline-block"});
+                const section = viewWriter.createAttributeElement( 'div', { class: 'image-inside' , style: "display:inline-block"});
 
                 return toWidgetEditable( section, viewWriter);
             }
