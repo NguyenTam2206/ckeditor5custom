@@ -29,8 +29,12 @@ export default class SimpleBtnEditing extends Plugin {
         })
         schema.register('contentImage' , {
             isLimit: true,
-
+            isBlock: true,
+            isObject: true,
+            
             allowIn: 'simpleBtn',
+
+            allowContentOf: '$block'
         })
     }
     _defineConverters() {
