@@ -36,6 +36,15 @@ export default class SimpleBtnEditing extends Plugin {
 
             allowContentOf: '$block'
         })
+        schema.register('captionImage' , {
+            isLimit: true,
+            isBlock: true,
+            isObject: true,
+
+            allowIn: 'simpleBtn',
+
+            allowContentOf: '$block'
+        })
     }
     _defineConverters() {
         const conversion = this.editor.conversion;
@@ -105,7 +114,7 @@ export default class SimpleBtnEditing extends Plugin {
         conversion.for( 'editingDowncast' ).elementToElement( {
             model: 'captionImage',
             view: ( modelElement, { writer: viewWriter } ) => {
-                const section = viewWriter.createAttributeElement
+                const section = viewWriter.createEditableElement
                 ( 'div', 
                 { class: 'text-caption' , 
                 style: "text-align: center;"});

@@ -22,6 +22,7 @@ function createSimpleBtn( writer ) {
 
     writer.append(simpleBtnImage, simpleBtn)
     writer.append(simpleBtnCaption, simpleBtn)
-    
+
+    writer.append('Your image caption' , simpleBtnCaption)
     return simpleBtn
 } 
