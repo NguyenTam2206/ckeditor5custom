@@ -36,11 +36,19 @@ export default class SimpleBtnEditing extends Plugin {
 
             allowContentOf: '$block'
         })
+        // schema.register('captionImage' , {
+        //     isLimit: true,
+        //     isBlock: true,
+        //     isObject: true,
+
+        //     allowIn: 'simpleBtn',
+
+        //     allowContentOf: '$block'
+        // })
         schema.register('captionImage' , {
             isLimit: true,
-            isBlock: true,
             isObject: true,
-
+            
             allowIn: 'simpleBtn',
 
             allowContentOf: '$block'
