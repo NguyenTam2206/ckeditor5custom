@@ -50,9 +50,9 @@ export default class SimpleBtnEditing extends Plugin {
         conversion.for( 'editingDowncast' ).elementToElement( {
             model: 'simpleBtn',
             view: ( modelElement, { writer: viewWriter } ) => {
-                const section = viewWriter.createContainerElement( 'div', { class: 'my-custom-box' } );
+                const section = viewWriter.createEditableElement( 'div', { class: 'my-custom-box' } );
 
-                return toWidget( section, viewWriter, { label: 'simple btn widget' } );
+                return toWidgetEditable( section, viewWriter, { label: 'simple btn widget' } );
             }
         } );
     }
