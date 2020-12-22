@@ -86,6 +86,32 @@ export default class SimpleBtnEditing extends Plugin {
 
                 return toWidgetEditable( section, viewWriter);
             }
+        } )
+
+        conversion.for('upcast').elementToElement( {
+            model: 'captionImage',
+            view: {
+                name: 'div',
+                classes: 'text-caption'
+            }
+        } )
+        conversion.for('dataDowncast').elementToElement( {
+            model: 'captionImage',
+            view: {
+                name: 'div',
+                classes: 'text-caption'
+            }
+        } )
+        conversion.for( 'editingDowncast' ).elementToElement( {
+            model: 'captionImage',
+            view: ( modelElement, { writer: viewWriter } ) => {
+                const section = viewWriter.createAttributeElement
+                ( 'div', 
+                { class: 'text-caption' , 
+                style: "text-align: center;"});
+
+                return toWidgetEditable( section, viewWriter);
+            }
         } );
     }
 }

@@ -18,8 +18,10 @@ export default class InsertSimpleBtnCommand extends Command {
 function createSimpleBtn( writer ) {
     const simpleBtn = writer.createElement( 'simpleBtn' )
     const simpleBtnImage = writer.createElement( 'contentImage' )
+    const simpleBtnCaption = writer.createElement('captionImage')
 
-    writer.append(simpleBtnImage, simpleBtn);
-
+    writer.append(simpleBtnImage, simpleBtn)
+    writer.append(simpleBtnCaption, simpleBtn)
+    
     return simpleBtn
 } 
