@@ -79,7 +79,10 @@ export default class SimpleBtnEditing extends Plugin {
         conversion.for( 'editingDowncast' ).elementToElement( {
             model: 'contentImage',
             view: ( modelElement, { writer: viewWriter } ) => {
-                const section = viewWriter.createAttributeElement( 'div', { class: 'image-inside' , style: "display:inline-block"});
+                const section = viewWriter.createAttributeElement
+                ( 'div', 
+                { class: 'image-inside' , 
+                style: "background-size: cover; background-repeat: no-repeat; background-position: center center"});
 
                 return toWidgetEditable( section, viewWriter);
             }
