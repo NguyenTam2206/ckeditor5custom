@@ -73,6 +73,8 @@
     "preversion": "npm run build"
   },
   "dependencies": {
+    "@ckeditor/ckeditor5-font": "^24.0.0",
+    "@ckeditor/ckeditor5-undo": "^24.0.0",
     "@ckeditor/ckeditor5-widget": "^24.0.0",
     "ckeditor_bs_grid": "github:tranhanam19999/ckeditor-bs-grid#master"
   }

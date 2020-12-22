@@ -24,7 +24,7 @@ export default class SimpleBtnUI extends Plugin {
                 withText: true,
                 tooltip: true
             } );
-
+            buttonView.tooltip = () => `Choose Image From Media.`
             // Bind the state of the button to the command.
             buttonView.bind( 'isOn', 'isEnabled' ).to( command, 'value', 'isEnabled' );
 
