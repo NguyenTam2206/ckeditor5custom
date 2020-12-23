@@ -18,6 +18,7 @@ import Heading from '@ckeditor/ckeditor5-heading/src/heading';
 import Indent from '@ckeditor/ckeditor5-indent/src/indent';
 import Link from '@ckeditor/ckeditor5-link/src/link';
 import List from '@ckeditor/ckeditor5-list/src/list';
+import TodoList from '@ckeditor/ckeditor5-list/src/todolist';
 import MediaEmbed from '@ckeditor/ckeditor5-media-embed/src/mediaembed';
 import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph';
 import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefromoffice';
@@ -31,6 +32,15 @@ import FontSize from '@ckeditor/ckeditor5-font/src/fontsize'
 import FontFamily from '@ckeditor/ckeditor5-font/src/fontfamily'
 import FontColor from '@ckeditor/ckeditor5-font/src/fontcolor'
 import FontBackgroundColor from '@ckeditor/ckeditor5-font/src/fontbackgroundcolor'
+import CodeBlock from '@ckeditor/ckeditor5-code-block/src/codeblock'
+import MathType from '@wiris/mathtype-ckeditor5';
+import HorizontalLine from '@ckeditor/ckeditor5-horizontal-line/src/horizontalline';
+import SpecialCharacters from '@ckeditor/ckeditor5-special-characters/src/specialcharacters';
+// A plugin that combines a basic set of special characters.
+import SpecialCharactersEssentials from '@ckeditor/ckeditor5-special-characters/src/specialcharactersessentials';
+import Subscript from '@ckeditor/ckeditor5-basic-styles/src/subscript';
+import Superscript from '@ckeditor/ckeditor5-basic-styles/src/superscript';
+import PageBreak from '@ckeditor/ckeditor5-page-break/src/pagebreak';
 
 export default class ClassicEditor extends ClassicEditorBase {}
 
@@ -41,13 +51,17 @@ ClassicEditor.builtinPlugins = [
 	Bold,
 	Italic,
 	Strikethrough,
+	Subscript,
+	Superscript,
 	Underline,
 	BlockQuote,
+	HorizontalLine,
 	EasyImage,
 	Heading,
 	Indent,
 	Link,
 	List,
+	TodoList,
 	MediaEmbed,
 	Paragraph,
 	PasteFromOffice,
@@ -60,7 +74,12 @@ ClassicEditor.builtinPlugins = [
 	FontSize,
 	FontFamily,
 	FontColor,
-	FontBackgroundColor
+	FontBackgroundColor,
+	CodeBlock,
+	SpecialCharacters, 
+	SpecialCharactersEssentials,
+	PageBreak,
+	MathType
 ];
 
 // Editor configuration.
@@ -72,6 +91,7 @@ ClassicEditor.defaultConfig = {
 			'|',
 			'heading',
 			'|',
+			'alignment',
 			'fontSize',
 			'|',
 			'bold',
@@ -84,17 +104,28 @@ ClassicEditor.defaultConfig = {
 			'fontBackgroundColor',
 			'|',
 			'simpleBtn',
-			'alignment', //Nam them
 			'link',
+			'insertTable',
+			'mediaEmbed',
+			'|',
+			'specialCharacters',
+			'subscript', 
+			'superscript',
+			'|',
 			'bulletedList',
 			'numberedList',
+			'todoList',
+			'pageBreak',
 			'|',
 			'indent',
 			'outdent',
 			'|',
+			'codeBlock',
 			'blockQuote',
-			'insertTable',
-			'mediaEmbed',
+			'horizontalLine',
+			'|',
+			'MathType',
+			'ChemType'
 		]
 	},
 	table: {
