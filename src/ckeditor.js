@@ -26,7 +26,7 @@ import Table from '@ckeditor/ckeditor5-table/src/table';
 import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
 import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformation';
 import Undo from '@ckeditor/ckeditor5-undo/src/undo'
-import SimpleBtn from './_utils/simplebtn'
+import SimpleBtn from './_utils/Media/simplebtn'
 import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment'; 
 import FontSize from '@ckeditor/ckeditor5-font/src/fontsize'
 import FontFamily from '@ckeditor/ckeditor5-font/src/fontfamily'
