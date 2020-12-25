@@ -41,6 +41,7 @@ import SpecialCharactersEssentials from '@ckeditor/ckeditor5-special-characters/
 import Subscript from '@ckeditor/ckeditor5-basic-styles/src/subscript';
 import Superscript from '@ckeditor/ckeditor5-basic-styles/src/superscript';
 import PageBreak from '@ckeditor/ckeditor5-page-break/src/pagebreak';
+import FullScreen from './_utils/FullScreen/FullScreen'
 
 export default class ClassicEditor extends ClassicEditorBase {}
 
@@ -79,7 +80,8 @@ ClassicEditor.builtinPlugins = [
 	SpecialCharacters, 
 	SpecialCharactersEssentials,
 	PageBreak,
-	MathType
+	MathType,
+	FullScreen
 ];
 
 // Editor configuration.
@@ -104,6 +106,9 @@ ClassicEditor.defaultConfig = {
 			'fontBackgroundColor',
 			'|',
 			'simpleBtn',
+			'|',
+			'fullScreen',
+			'|',
 			'link',
 			'insertTable',
 			'mediaEmbed',
