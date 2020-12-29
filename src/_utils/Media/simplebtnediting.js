@@ -64,6 +64,7 @@ export default class SimpleBtnEditing extends Plugin {
                     tempImg.width = `${tempImg2.width}px`
                     tempImg.height = `${tempImg2.height}px`         
                 }
+                console.log('ttemp2 ', tempImg2 )
                 tempImg2.src = document.getElementsByClassName('image-inside')[length-1].src
                 return writer.createAttributeElement( 'img', {
                     src: document.getElementsByClassName('image-inside')[length-1].src,
@@ -114,7 +115,7 @@ export default class SimpleBtnEditing extends Plugin {
                 const section = viewWriter.createAttributeElement
                 ( 'img', 
                 { class: 'image-inside' , 
-                src: '',
+                src: null,
                 style: ` 
                         width:${'400px'};
                         height:${'400px'}`});
