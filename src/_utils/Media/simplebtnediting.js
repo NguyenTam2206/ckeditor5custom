@@ -75,7 +75,12 @@ export default class SimpleBtnEditing extends Plugin {
                         classes: 'image-inside'
                     }   , { priority: 7 } )
                 }
-                else return;
+                else return writer.createAttributeElement( 'img', {
+                    src: '',
+                    style: `width:${tempImg.width}px;
+                            height:${tempImg.height}px`,
+                    classes: 'image-inside'
+                }   , { priority: 7 } )
             };
         }
         conversion.for('upcast').elementToElement( {
