@@ -69,12 +69,12 @@ export default class SimpleBtnEditing extends Plugin {
                 if(document.getElementsByClassName('image-inside')[length-1].src) {
                     tempImg2.src = document.getElementsByClassName('image-inside')[length-1].src 
                 
-                    return writer.createAttributeElement( 'img', {
-                        src: document.getElementsByClassName('image-inside')[length-1].src,
-                        style: `width:${tempImg.width}px;
-                                height:${tempImg.height}px`,
-                        classes: 'image-inside'
-                    }   , { priority: 7 } )
+                    // return writer.createAttributeElement( 'img', {
+                    //     src: document.getElementsByClassName('image-inside')[length-1].src,
+                    //     style: `width:${tempImg.width}px;
+                    //             height:${tempImg.height}px`,
+                    //     classes: 'image-inside'
+                    // }   , { priority: 7 } )
                 }
                 else return;
             };
