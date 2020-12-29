@@ -65,18 +65,10 @@ export default class SimpleBtnEditing extends Plugin {
                     tempImg.height = `${tempImg2.height}px`         
                 }
                 console.log('im img ', document.getElementsByClassName('image-inside')[length-1])
-                if(document.getElementsByClassName('image-inside')[length-1]) {
-                    tempImg2.src = document.getElementsByClassName('image-inside')[length-1].src 
-                
-                    return writer.createAttributeElement( 'img', {
-                        src: document.getElementsByClassName('image-inside')[length-1].src,
-                        style: `width:${tempImg.width}px;
-                                height:${tempImg.height}px`,
-                        classes: 'image-inside'
-                    }   , { priority: 7 } )
-                }
-                else return writer.createAttributeElement( 'img', {
-                    src: '',
+                tempImg2.src = document.getElementsByClassName('image-inside')[length-1].src 
+            
+                return writer.createAttributeElement( 'img', {
+                    src: document.getElementsByClassName('image-inside')[length-1].src,
                     style: `width:${tempImg.width}px;
                             height:${tempImg.height}px`,
                     classes: 'image-inside'
