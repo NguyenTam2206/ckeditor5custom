@@ -42,7 +42,7 @@ import Subscript from '@ckeditor/ckeditor5-basic-styles/src/subscript';
 import Superscript from '@ckeditor/ckeditor5-basic-styles/src/superscript';
 import PageBreak from '@ckeditor/ckeditor5-page-break/src/pagebreak';
 import FullScreen from './_utils/FullScreen/FullScreen'
-
+import ImageResize from '@ckeditor/ckeditor5-image/src/imageresize'
 export default class ClassicEditor extends ClassicEditorBase {}
 
 // Plugins to include in the build.
@@ -80,8 +80,9 @@ ClassicEditor.builtinPlugins = [
 	SpecialCharacters, 
 	SpecialCharactersEssentials,
 	PageBreak,
-	MathType,
-	FullScreen
+	//MathType,
+	FullScreen,
+	ImageResize
 ];
 
 // Editor configuration.
@@ -128,9 +129,9 @@ ClassicEditor.defaultConfig = {
 			'codeBlock',
 			'blockQuote',
 			'horizontalLine',
-			'|',
-			'MathType',
-			'ChemType'
+			// '|',
+			// 'MathType',
+			// 'ChemType'
 		]
 	},
 	table: {

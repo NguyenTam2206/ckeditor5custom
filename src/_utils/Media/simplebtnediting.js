@@ -8,6 +8,7 @@ export default class SimpleBtnEditing extends Plugin {
     static get requires() {
         return [ Widget ]
     }
+
     init() {
         console.log(
             'SimpleBoxEditing#init() got called'
@@ -20,7 +21,7 @@ export default class SimpleBtnEditing extends Plugin {
     }
     _defineSchema() {
         const schema = this.editor.model.schema
-
+        
         schema.register('simpleBtn', {
             isObject: true,
             isBlock: true,
@@ -33,30 +34,45 @@ export default class SimpleBtnEditing extends Plugin {
             isObject: true,
 
             allowIn: 'simpleBtn',
-
+            allowAtrributes: [ 'style' ],
             allowContentOf: '$block'
         })
-        // schema.register('captionImage' , {
-        //     isLimit: true,
-        //     isBlock: true,
-        //     isObject: true,
-
-        //     allowIn: 'simpleBtn',
-
-        //     allowContentOf: '$block'
-        // })
         schema.register('captionImage' , {
             isLimit: true,
             isObject: true,
             
             allowIn: 'simpleBtn',
-
+            
             allowContentOf: '$block'
         })
     }
     _defineConverters() {
         const conversion = this.editor.conversion;
-
+        function renderUpcastAttribute( styleAttr ) {
+            return viewElement =>  viewElement.getStyle( styleAttr );
+        }
+        function renderDowncastElement( styleAttr ) {
+            return ( modelAttributeValue, { writer } ) => {
+                let tempImg = {
+                    width: '100px',
+                    height: '100px'
+                }  
+                const length = document.getElementsByClassName('my-custom-box').length
+                const tempImg2 = new Image()
+                tempImg2.onload = function (event)
+                {
+                    tempImg.width = `${tempImg2.width}px`
+                    tempImg.height = `${tempImg2.height}px`         
+                }
+                tempImg2.src = document.getElementsByClassName('image-inside')[length-1].src
+                return writer.createAttributeElement( 'img', {
+                    src: document.getElementsByClassName('image-inside')[length-1].src,
+                    style: `width:${tempImg.width}px;
+                            height:${tempImg.height}px`,
+                    classes: 'image-inside'
+                }   , { priority: 7 } )
+            };
+        }
         conversion.for('upcast').elementToElement( {
             model: 'simpleBtn',
             view: {
@@ -74,7 +90,8 @@ export default class SimpleBtnEditing extends Plugin {
         conversion.for( 'editingDowncast' ).elementToElement( {
             model: 'simpleBtn',
             view: ( modelElement, { writer: viewWriter } ) => {
-                const section = viewWriter.createContainerElement( 'div', { class: 'my-custom-box' , style: "display:inline-block"});
+                const section = viewWriter.createContainerElement( 
+                'div', { class: 'my-custom-box' , style: "display:inline-block"});
 
                 return toWidget( section, viewWriter, { label: 'simple btn widget' } );
             }
@@ -82,26 +99,29 @@ export default class SimpleBtnEditing extends Plugin {
         conversion.for('upcast').elementToElement( {
             model: 'contentImage',
             view: {
-                name: 'div',
+                name: 'img',
                 classes: 'image-inside'
             }
         } )
+
         conversion.for('dataDowncast').elementToElement( {
             model: 'contentImage',
-            view: {
-                name: 'div',
-                classes: 'image-inside'
-            }
+            view: renderDowncastElement('background-image')
         } )
         conversion.for( 'editingDowncast' ).elementToElement( {
             model: 'contentImage',
             view: ( modelElement, { writer: viewWriter } ) => {
                 const section = viewWriter.createAttributeElement
-                ( 'div', 
+                ( 'img', 
                 { class: 'image-inside' , 
-                style: "background-size: cover; background-repeat: no-repeat; background-position: center center"});
-
+                src: '',
+                style: ` 
+                        width:${'400px'};
+                        height:${'400px'}`});
                 return toWidgetEditable( section, viewWriter);
+            },
+            triggerBy: {
+                attributes: [ 'style' ]
             }
         } )
 
