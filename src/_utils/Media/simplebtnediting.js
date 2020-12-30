@@ -69,9 +69,9 @@ export default class SimpleBtnEditing extends Plugin {
             
                 return writer.createAttributeElement( 'img', {
                     src: document.getElementsByClassName('image-inside')[length-1].src,
-                    style: `width:${tempImg.width}px;
-                            height:${tempImg.height}px`,
-                    classes: 'image-inside'
+                    style: `width:${tempImg.width};
+                            height:${tempImg.height};`,
+                    class: 'image-inside'
                 }   , { priority: 7 } )
             };
         }

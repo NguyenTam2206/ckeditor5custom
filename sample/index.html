@@ -39,12 +39,12 @@
 		.then( editor => {
 			window.editor = editor;
 
-			editor.model.schema.extend( 'image', { allowAttributes: 'dSource' } );
+			// editor.model.schema.extend( 'image', { allowAttributes: 'dSource' } );
 
-			editor.conversion.for( 'upcast' ).attributeToAttribute( {
-				view: 'data-source',
-				model: 'dSource'
-			} );
+			// editor.conversion.for( 'upcast' ).attributeToAttribute( {
+			// 	view: 'data-source',
+			// 	model: 'dSource'
+			// } );
 
 			// editor.conversion.for( 'downcast' ).add( dispatcher => {
 			// 	editor.conversion.for( 'dataDowncast' ).add( dispatcher => {
