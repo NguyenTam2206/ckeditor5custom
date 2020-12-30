@@ -119,9 +119,12 @@ export default class SimpleBtnEditing extends Plugin {
                 ( 'img', 
                 { class: 'image-inside' , 
                 src: null,
+                // style: ` 
+                //         width:${'400px'};
+                //         height:${'400px'}`});
                 style: ` 
-                        width:${'400px'};
-                        height:${'400px'}`});
+                    width:'';
+                    height:''`});
                 return toWidgetEditable( section, viewWriter);
             },
             triggerBy: {
