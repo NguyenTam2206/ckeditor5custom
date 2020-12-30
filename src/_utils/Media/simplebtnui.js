@@ -3,8 +3,6 @@ import ButtonView from '@ckeditor/ckeditor5-ui/src/button/buttonview'
 import MediaIcon from './icons/MediaIcon.svg'
 export default class SimpleBtnUI extends Plugin {
     init() {
-        console.log('SimpleBoxUI#init() got called')
-
         const editor = this.editor;
         const t = editor.t;
 
