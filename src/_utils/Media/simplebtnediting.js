@@ -43,19 +43,39 @@ export default class SimpleBtnEditing extends Plugin {
         })
     }
     _defineConverters() {
+        let i = 0;
+        let j = false;
         const conversion = this.editor.conversion;
         function renderUpcastAttribute( styleAttr ) {
             return viewElement =>  viewElement.getStyle( styleAttr );
         }
-        function renderDowncastElement( styleAttr ) {
+        function renderDowncastElement( ) {
             return ( modelAttributeValue, { writer } ) => {
                 const length = document.getElementsByClassName('my-custom-box').length
+
+                // if(i > 0 && j == true ) {
+                //     j = false
+                // } 
+                // else if (i > 0) {
+                //     j = true
+                //     i--;
+                // }
+                if(i < length) {
+                    i++
+                }
+                else i--
+                // return writer.createAttributeElement( 'img', {
+                //     src: document.getElementsByClassName('image-inside')[i].src,
+                //     style: `width:${document.getElementsByClassName('image-inside')[i].style.width};
+                //             height:${document.getElementsByClassName('image-inside')[i++].style.height};`,
+                //     class: 'image-inside'
+                // } , { priority: 7 })
                 return writer.createAttributeElement( 'img', {
-                    src: document.getElementsByClassName('image-inside')[length-1].src,
-                    style: `width:${document.getElementsByClassName('image-inside')[length-1].style.width};
-                            height:${document.getElementsByClassName('image-inside')[length-1].style.height};`,
+                    src: document.getElementsByClassName('image-inside')[i - 1].src,
+                    style: `width:${document.getElementsByClassName('image-inside')[i - 1].style.width};
+                            height:${document.getElementsByClassName('image-inside')[i - 1].style.height};`,
                     class: 'image-inside'
-                }   , { priority: 7 } )
+                } , { priority: 7 })
             };
         }
         conversion.for('upcast').elementToElement( {
@@ -91,7 +111,7 @@ export default class SimpleBtnEditing extends Plugin {
 
         conversion.for('dataDowncast').elementToElement( {
             model: 'contentImage',
-            view: renderDowncastElement('background-image')
+            view: renderDowncastElement()
         } )
         conversion.for( 'editingDowncast' ).elementToElement( {
             model: 'contentImage',

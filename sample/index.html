@@ -14,6 +14,8 @@
 
 <h1>CKEditor 5 – classic editor build – development sample</h1>
 <button onclick="check()"">cac</button>
+<button onclick="check2()">cac2</button>
+<button onclick="console.log(editor.getData())">Data</button>
 <div id="editor">
 	
 
@@ -22,16 +24,23 @@
 <script src="../build/ckeditor.js"></script>
 <script>
 	let check = () => {
-		
 		let url = `http://ntv-api.ngn.com.vn/media/5fe0983dd6157530b19a19d9_BookCover1.png`
-		let width = '400px'
-		let height = '500px'
+		let width = '200px'
+		let height = '200px'
 		document.getElementsByClassName("image-inside")[0].src = url
 		document.getElementsByClassName("image-inside")[0].style.width = width
 		document.getElementsByClassName("image-inside")[0].style.height = height
 		//.setAttribute("style",`background-image: ${url};width: ${width};height: ${height}`)		
+	}
+	let check2 = () => {
+		let url = `http://ntv-api.ngn.com.vn/media/5fe58ba0d6157530b19abb9c_icons8-google_plus.svg`
+		let width = '200px'
+		let height = '200px'
+		document.getElementsByClassName("image-inside")[1].src = url
+		document.getElementsByClassName("image-inside")[1].style.width = width
+		document.getElementsByClassName("image-inside")[1].style.height = height
+		//.setAttribute("style",`background-image: ${url};width: ${width};height: ${height}`)		
 
-		console.log('im data ', editor.getData())
 	}
 </script>
 <script>
