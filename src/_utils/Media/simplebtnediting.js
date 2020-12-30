@@ -113,6 +113,7 @@ export default class SimpleBtnEditing extends Plugin {
         conversion.for( 'editingDowncast' ).elementToElement( {
             model: 'contentImage',
             view: ( modelElement, { writer: viewWriter } ) => {
+                console.log('hello im editingDowncast')
                 const section = viewWriter.createAttributeElement
                 ( 'img', 
                 { class: 'image-inside' , 
