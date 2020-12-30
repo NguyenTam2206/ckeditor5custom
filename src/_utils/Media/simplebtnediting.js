@@ -53,24 +53,25 @@ export default class SimpleBtnEditing extends Plugin {
         }
         function renderDowncastElement( styleAttr ) {
             return ( modelAttributeValue, { writer } ) => {
-                let tempImg = {
-                    width: '100px',
-                    height: '100px'
-                }  
+                // const tempImg = {
+                //     width: '100px',
+                //     height: '100px'
+                // }  
                 const length = document.getElementsByClassName('my-custom-box').length
-                const tempImg2 = new Image()
-                tempImg2.onload = function (event)
-                {
-                    tempImg.width = `${tempImg2.width}px`
-                    tempImg.height = `${tempImg2.height}px`         
-                }
-                console.log('im img ', document.getElementsByClassName('image-inside')[length-1])
-                tempImg2.src = document.getElementsByClassName('image-inside')[length-1].src 
-            
+                // const tempImg2 = new Image()
+                // tempImg2.onload = function (event)
+                // {
+                //     console.log('im inside onload')
+                //     tempImg.width = `${tempImg2.width}px`
+                //     tempImg.height = `${tempImg2.height}px`         
+                // }
+                // console.log('im img ', document.getElementsByClassName('image-inside')[length-1])
+                // tempImg2.src = document.getElementsByClassName('image-inside')[length-1].src 
+
                 return writer.createAttributeElement( 'img', {
                     src: document.getElementsByClassName('image-inside')[length-1].src,
-                    style: `width:${tempImg.width};
-                            height:${tempImg.height};`,
+                    style: `width:${document.getElementsByClassName('image-inside')[length-1].style.width};
+                            height:${document.getElementsByClassName('image-inside')[length-1].style.height};`,
                     class: 'image-inside'
                 }   , { priority: 7 } )
             };
