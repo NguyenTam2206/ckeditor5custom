@@ -53,24 +53,12 @@ export default class SimpleBtnEditing extends Plugin {
             return ( modelAttributeValue, { writer } ) => {
                 const length = document.getElementsByClassName('my-custom-box').length
 
-                // if(i > 0 && j == true ) {
-                //     j = false
-                // } 
-                // else if (i > 0) {
-                //     j = true
-                //     i--;
-                // }
                 if(i < length) {
                     i++
                 }
                 else i--
-                // return writer.createAttributeElement( 'img', {
-                //     src: document.getElementsByClassName('image-inside')[i].src,
-                //     style: `width:${document.getElementsByClassName('image-inside')[i].style.width};
-                //             height:${document.getElementsByClassName('image-inside')[i++].style.height};`,
-                //     class: 'image-inside'
-                // } , { priority: 7 })
-                if(document.getElementsByClassName('image-inside')[i - 1].src == undefined) {
+
+                if(document.getElementsByClassName('image-inside')[i - 1] == undefined) {
                     return writer.createAttributeElement( 'img', {
                         src: '',
                         style: `width:'';
