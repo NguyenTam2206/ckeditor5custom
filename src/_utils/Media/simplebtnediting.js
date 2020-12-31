@@ -52,13 +52,17 @@ export default class SimpleBtnEditing extends Plugin {
         function renderDowncastElement( ) {
             return ( modelAttributeValue, { writer } ) => {
                 const length = document.getElementsByClassName('my-custom-box').length
-
+                if(i == length) {
+                    i = 0;
+                }
                 if(i < length) {
                     i++
                 }
                 else i--
 
+                console.log('im i ', i)
                 if(document.getElementsByClassName('image-inside')[i - 1] == undefined) {
+                    console.log('hello!')
                     return writer.createAttributeElement( 'img', {
                         src: '',
                         style: `width:'';

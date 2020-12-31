@@ -15,6 +15,7 @@
 <h1>CKEditor 5 – classic editor build – development sample</h1>
 <button onclick="check()"">cac</button>
 <button onclick="check2()">cac2</button>
+<button onclick="check3()">cac3</button>
 <button onclick="console.log(editor.getData())">Data</button>
 <div id="editor">
 	
@@ -39,6 +40,15 @@
 		document.getElementsByClassName("image-inside")[1].src = url
 		document.getElementsByClassName("image-inside")[1].style.width = width
 		document.getElementsByClassName("image-inside")[1].style.height = height
+		//.setAttribute("style",`background-image: ${url};width: ${width};height: ${height}`)		
+	}
+	let check3 = () => {
+		let url = `http://ntv-api.ngn.com.vn/media/5fe58b39d6157530b19abb51_5a392b02733f003c3feea6cd5e140c53.webp`
+		let width = '200px'
+		let height = '200px'
+		document.getElementsByClassName("image-inside")[2].src = url
+		document.getElementsByClassName("image-inside")[2].style.width = width
+		document.getElementsByClassName("image-inside")[2].style.height = height
 		//.setAttribute("style",`background-image: ${url};width: ${width};height: ${height}`)		
 
 	}
