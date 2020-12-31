@@ -44,7 +44,7 @@ export default class SimpleBtnEditing extends Plugin {
     }
     _defineConverters() {
         let i = 0;
-        let j = false;
+        let j = document.getElementsByClassName('my-custom-box').length;
         const conversion = this.editor.conversion;
         function renderUpcastAttribute( styleAttr ) {
             return viewElement =>  viewElement.getStyle( styleAttr );
@@ -52,17 +52,28 @@ export default class SimpleBtnEditing extends Plugin {
         function renderDowncastElement( ) {
             return ( modelAttributeValue, { writer } ) => {
                 const length = document.getElementsByClassName('my-custom-box').length
-                if(i == length) {
-                    i = 0;
-                }
+                
+                // console.log('im j ', j)
+                // console.log('im length ', length)
+
+                // if(length > j) {
+                //     i = 1
+                //     j = length
+                // }
                 if(i < length) {
                     i++
                 }
                 else i--
-
-                console.log('im i ', i)
+                // else if(i < length) {
+                //     i++
+                // }
+                // if( i == length ) {
+                //     i = 1;
+                // }
+                //else i--
+                console.log('im i after', i)
+                console.log('-----------------------------')
                 if(document.getElementsByClassName('image-inside')[i - 1] == undefined) {
-                    console.log('hello!')
                     return writer.createAttributeElement( 'img', {
                         src: '',
                         style: `width:'';
@@ -121,9 +132,8 @@ export default class SimpleBtnEditing extends Plugin {
                 ( 'img', 
                 { class: 'image-inside' , 
                 src: null,
-                style: ` 
-                    width:'';
-                    height:''`});
+                style: `width:'';
+                        height:''`});
                 return toWidgetEditable( section, viewWriter);
             },
             triggerBy: {
