@@ -70,10 +70,18 @@ export default class SimpleBtnEditing extends Plugin {
                 //             height:${document.getElementsByClassName('image-inside')[i++].style.height};`,
                 //     class: 'image-inside'
                 // } , { priority: 7 })
+                if(document.getElementsByClassName('image-inside')[i - 1].src) {
+                    return writer.createAttributeElement( 'img', {
+                        src: document.getElementsByClassName('image-inside')[i - 1].src,
+                        style: `width:${document.getElementsByClassName('image-inside')[i - 1].style.width};
+                                height:${document.getElementsByClassName('image-inside')[i - 1].style.height};`,
+                        class: 'image-inside'
+                    } , { priority: 7 })
+                }
                 return writer.createAttributeElement( 'img', {
-                    src: document.getElementsByClassName('image-inside')[i - 1].src,
-                    style: `width:${document.getElementsByClassName('image-inside')[i - 1].style.width};
-                            height:${document.getElementsByClassName('image-inside')[i - 1].style.height};`,
+                    src: '',
+                    style: `width:'';
+                            height:'';`,
                     class: 'image-inside'
                 } , { priority: 7 })
             };
