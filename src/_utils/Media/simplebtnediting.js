@@ -52,7 +52,7 @@ export default class SimpleBtnEditing extends Plugin {
         function renderDowncastElement( ) {
             return ( modelAttributeValue, { writer } ) => {
                 const length = document.getElementsByClassName('my-custom-box').length
-                
+
                 // console.log('im j ', j)
                 // console.log('im length ', length)
 
@@ -60,6 +60,9 @@ export default class SimpleBtnEditing extends Plugin {
                 //     i = 1
                 //     j = length
                 // }
+                if(i == length) {
+                    i = 0;
+                }
                 if(i < length) {
                     i++
                 }
@@ -71,8 +74,8 @@ export default class SimpleBtnEditing extends Plugin {
                 //     i = 1;
                 // }
                 //else i--
-                console.log('im i after', i)
-                console.log('-----------------------------')
+                console.log('i ', i)
+                //console.log('-----------------------------')
                 if(document.getElementsByClassName('image-inside')[i - 1] == undefined) {
                     return writer.createAttributeElement( 'img', {
                         src: '',
