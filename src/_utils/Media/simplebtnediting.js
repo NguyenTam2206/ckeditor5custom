@@ -45,7 +45,7 @@ export default class SimpleBtnEditing extends Plugin {
     _defineConverters() {
         let i = 0;
         let temp = false;
-        let j = document.getElementsByClassName('my-custom-box').length;
+        //let j = document.getElementsByClassName('my-custom-box').length;
         const conversion = this.editor.conversion;
         function renderUpcastAttribute( styleAttr ) {
             return viewElement =>  viewElement.getStyle( styleAttr );
@@ -54,12 +54,6 @@ export default class SimpleBtnEditing extends Plugin {
             return ( modelAttributeValue, { writer } ) => {
                 const length = document.getElementsByClassName('my-custom-box').length
 
-                // if(i < length) {
-                //     i++
-                // }
-                // else i--
-
-                //Attempt
                 if(temp == false) {
                     i = 0
                     temp = true
@@ -126,9 +120,10 @@ export default class SimpleBtnEditing extends Plugin {
         conversion.for( 'editingDowncast' ).elementToElement( {
             model: 'contentImage',
             view: ( modelElement, { writer: viewWriter } ) => {
+
                 i = 0
                 temp = true
-                console.log('i in edit ', i)
+
                 const section = viewWriter.createAttributeElement
                 ( 'img', 
                 { class: 'image-inside' , 
