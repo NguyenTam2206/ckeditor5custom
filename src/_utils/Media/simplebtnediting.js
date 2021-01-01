@@ -44,6 +44,7 @@ export default class SimpleBtnEditing extends Plugin {
     }
     _defineConverters() {
         let i = 0;
+        let temp = false;
         let j = document.getElementsByClassName('my-custom-box').length;
         const conversion = this.editor.conversion;
         function renderUpcastAttribute( styleAttr ) {
@@ -53,29 +54,23 @@ export default class SimpleBtnEditing extends Plugin {
             return ( modelAttributeValue, { writer } ) => {
                 const length = document.getElementsByClassName('my-custom-box').length
 
-                // console.log('im j ', j)
-                // console.log('im length ', length)
-
-                // if(length > j) {
-                //     i = 1
-                //     j = length
+                // if(i < length) {
+                //     i++
                 // }
-                if(i == length) {
-                    i = 0;
+                // else i--
+
+                //Attempt
+                if(temp == false) {
+                    i = 0
+                    temp = true
                 }
                 if(i < length) {
                     i++
                 }
-                else i--
-                // else if(i < length) {
-                //     i++
-                // }
-                // if( i == length ) {
-                //     i = 1;
-                // }
-                //else i--
-                console.log('i ', i)
-                //console.log('-----------------------------')
+                if(i == length) {
+                    temp = false
+                }
+
                 if(document.getElementsByClassName('image-inside')[i - 1] == undefined) {
                     return writer.createAttributeElement( 'img', {
                         src: '',
@@ -131,6 +126,9 @@ export default class SimpleBtnEditing extends Plugin {
         conversion.for( 'editingDowncast' ).elementToElement( {
             model: 'contentImage',
             view: ( modelElement, { writer: viewWriter } ) => {
+                i = 0
+                temp = true
+                console.log('i in edit ', i)
                 const section = viewWriter.createAttributeElement
                 ( 'img', 
                 { class: 'image-inside' , 
