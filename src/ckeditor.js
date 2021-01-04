@@ -42,6 +42,8 @@ import Subscript from '@ckeditor/ckeditor5-basic-styles/src/subscript';
 import Superscript from '@ckeditor/ckeditor5-basic-styles/src/superscript';
 import PageBreak from '@ckeditor/ckeditor5-page-break/src/pagebreak';
 import FullScreen from './_utils/FullScreen/FullScreen'
+import SimpleBtnToolbar from './_utils/Media/toolbar/index'
+import ImageStyle from '@ckeditor/ckeditor5-image/src/imagestyle'
 import ImageResize from '@ckeditor/ckeditor5-image/src/imageresize'
 export default class ClassicEditor extends ClassicEditorBase {}
 
@@ -83,6 +85,8 @@ ClassicEditor.builtinPlugins = [
 	//MathType,
 	FullScreen,
 	ImageResize
+	//SimpleBtnToolbar,
+	//ImageStyle
 ];
 
 // Editor configuration.
@@ -141,6 +145,12 @@ ClassicEditor.defaultConfig = {
 			'mergeTableCells'
 		]
 	},
+	// simpleBtn: {
+	// 	toolbar: [
+	// 		'imageStyle: alignLeft',
+	// 		'imageStyle: alignRight'
+	// 	]
+	// },
 	// This value must be kept in sync with the language defined in webpack.config.js.
 	language: 'en'
 };

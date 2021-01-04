@@ -14,6 +14,7 @@ export default class SimpleBtnEditing extends Plugin {
         this._defineConverters()
         
         this.editor.commands.add('insertSimpleBtn' , new InsertSimpleBtnCommand( this.editor ))
+        this.editor.commands.add( 'imageResize', new InsertSimpleBtnCommand( this.editor ) );
     }
     _defineSchema() {
         const schema = this.editor.model.schema
@@ -22,13 +23,14 @@ export default class SimpleBtnEditing extends Plugin {
             isObject: true,
             isBlock: true,
             allowWhere: '$block',
+            //inheritAllFrom: 'image',
             allowAtrributes: [ 'style' ]
         })
         schema.register('contentImage' , {
-            isLimit: true,
-            isBlock: true,
+            //isLimit: true,
+            //isBlock: true,
             isObject: true,
-
+            //inheritAllFrom: 'image',
             allowIn: 'simpleBtn',
             allowAtrributes: [ 'style' ],
             allowContentOf: '$block'
@@ -73,38 +75,87 @@ export default class SimpleBtnEditing extends Plugin {
                         class: 'image-inside'
                     } , { priority: 7 })
                 }
+                // return writer.createAttributeElement( 'img', {
+                //     src: document.getElementsByClassName('image-inside')[i - 1].src,
+                //     style: `width:${document.getElementsByClassName('image-inside')[i - 1].style.width};
+                //             height:${document.getElementsByClassName('image-inside')[i - 1].style.height};`,
+                //     class: 'image-inside'
+                // } , { priority: 7 })
                 return writer.createAttributeElement( 'img', {
                     src: document.getElementsByClassName('image-inside')[i - 1].src,
-                    style: `width:${document.getElementsByClassName('image-inside')[i - 1].style.width};
-                            height:${document.getElementsByClassName('image-inside')[i - 1].style.height};`,
+                    style: `height: 100%; width: 100%; object-fit: contain`,
                     class: 'image-inside'
                 } , { priority: 7 })
                 
             };
         }
+        // conversion.for('upcast').elementToElement( {
+        //     model: 'simpleBtn',
+        //     view: {
+        //         name: 'div',
+        //         classes: 'my-custom-box'
+        //     }
+        // } )
+        // conversion.for('dataDowncast').elementToElement( {
+        //     model: 'simpleBtn',
+        //     view: {
+        //         name: 'div',
+        //         classes: 'my-custom-box'
+        //     }
+        // } )
+        // conversion.for( 'editingDowncast' ).elementToElement( {
+        //     model: 'simpleBtn',
+        //     view: ( modelElement, { writer: viewWriter } ) => {
+        //         const section = viewWriter.createContainerElement( 
+        //         'div', { class: 'my-custom-box' , style: "display:inline-block"});
+
+        //         return toWidget( section, viewWriter, { label: 'simple btn widget' } );
+        //     }
+        // } );
+        /////////////////---//////////////////////
         conversion.for('upcast').elementToElement( {
             model: 'simpleBtn',
             view: {
-                name: 'div',
-                classes: 'my-custom-box'
+                name: 'figure',
+                classes: 'image my-custom-box '
             }
         } )
         conversion.for('dataDowncast').elementToElement( {
             model: 'simpleBtn',
             view: {
-                name: 'div',
-                classes: 'my-custom-box'
+                name: 'figure',
+                classes: 'image my-custom-box'
             }
         } )
         conversion.for( 'editingDowncast' ).elementToElement( {
             model: 'simpleBtn',
             view: ( modelElement, { writer: viewWriter } ) => {
+                console.log('im editingDowncast')
                 const section = viewWriter.createContainerElement( 
-                'div', { class: 'my-custom-box' , style: "display:inline-block"});
+                'figure', { class: 'image my-custom-box' , style: "display:inline-block"});
 
                 return toWidget( section, viewWriter, { label: 'simple btn widget' } );
             }
         } );
+
+        conversion.for( 'downcast' ).add( dispatcher =>
+			dispatcher.on( 'attribute:width:simpleBtn', ( evt, data, conversionApi ) => {
+				if ( !conversionApi.consumable.consume( data.item, evt.name ) ) {
+					return;
+				}
+				const viewWriter = conversionApi.writer;
+				const figure = conversionApi.mapper.toViewElement( data.item );
+
+				if ( data.attributeNewValue !== null ) {
+					viewWriter.setStyle( 'width', data.attributeNewValue, figure );
+					viewWriter.addClass( 'image_resized', figure );
+				} else {
+					viewWriter.removeStyle( 'width', figure );
+					viewWriter.removeClass( 'image_resized', figure );
+				}
+			} )
+		);
+
         conversion.for('upcast').elementToElement( {
             model: 'contentImage',
             view: {
@@ -140,14 +191,14 @@ export default class SimpleBtnEditing extends Plugin {
         conversion.for('upcast').elementToElement( {
             model: 'captionImage',
             view: {
-                name: 'div',
+                name: 'figcaption',
                 classes: 'text-caption'
             }
         } )
         conversion.for('dataDowncast').elementToElement( {
             model: 'captionImage',
             view: {
-                name: 'div',
+                name: 'figcaption',
                 classes: 'text-caption'
             }
         } )
@@ -155,7 +206,7 @@ export default class SimpleBtnEditing extends Plugin {
             model: 'captionImage',
             view: ( modelElement, { writer: viewWriter } ) => {
                 const section = viewWriter.createEditableElement
-                ( 'div', 
+                ( 'figcaption', 
                 { class: 'text-caption' , 
                 style: "text-align: center;"});
 
