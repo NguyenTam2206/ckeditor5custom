@@ -1,12 +1,34 @@
 export function getSelectedImageWidget( selection ) {
 	const viewElement = selection.getSelectedElement();
 
-	if ( viewElement && isImageWidget( viewElement ) ) {
-		return viewElement;
-	}
+	////Original
+	// if ( viewElement && isImageWidget( viewElement ) ) {
+		
+	// 	return viewElement;
+	// }
 
-	return null;
+	// return null;
+	////-////
+
+	//Nam Modified
+	return viewElement
 }
-export function isImageWidget( viewElement ) {
-	return !!viewElement.getCustomProperty( 'image' ) && isWidget( viewElement );
-}
+////Nam modified
+// export function isImageWidget( viewElement ) {
+// 	return !!viewElement.getCustomProperty( 'simpleBtn' ) && isWidget( viewElement );
+// }
+
+////Original
+// export function isImageWidget( viewElement ) {
+// 	return !!viewElement.getCustomProperty( 'image' ) && isWidget( viewElement );
+// }
+////-////
+
+// export function isWidget( node ) {
+// 	if ( !node.is( 'element' ) ) {
+// 		console.log('element false')
+// 		return false;
+// 	}
+
+// 	return !!node.getCustomProperty( 'widget' );
+// }

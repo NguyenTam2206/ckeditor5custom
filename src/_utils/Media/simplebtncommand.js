@@ -22,8 +22,6 @@ export default class InsertSimpleBtnCommand extends Command {
             // 		writer.setAttribute( 'width', '100px', imageElement );
             // 	} );
             // }
-
-            //Testing
             this.value = {
                 width: options.width,
                 height: null
@@ -33,6 +31,21 @@ export default class InsertSimpleBtnCommand extends Command {
                     writer.setAttribute( 'width', options.width, imageElement );
                 } );
             }
+            //Testing
+            // if(options.styleImg) {
+
+            // } 
+            // else {
+            //     this.value = {
+            //         width: options.width,
+            //         height: null
+            //     };
+            //     if ( imageElement ) {
+            //         model.change( writer => {
+            //             writer.setAttribute( 'width', options.width, imageElement );
+            //         } );
+            //     }
+            // }
         }
     }
     refresh() {

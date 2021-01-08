@@ -43,8 +43,17 @@ import Superscript from '@ckeditor/ckeditor5-basic-styles/src/superscript';
 import PageBreak from '@ckeditor/ckeditor5-page-break/src/pagebreak';
 import FullScreen from './_utils/FullScreen/FullScreen'
 import SimpleBtnToolbar from './_utils/Media/toolbar/index'
-import ImageStyle from '@ckeditor/ckeditor5-image/src/imagestyle'
-import ImageResize from '@ckeditor/ckeditor5-image/src/imageresize'
+// import ImageStyle from '@ckeditor/ckeditor5-image/src/imagestyle'
+// import ImageResize from '@ckeditor/ckeditor5-image/src/imageresize'
+// import Image from '@ckeditor/ckeditor5-image/src/image'
+// import ImageToolbar from '@ckeditor/ckeditor5-image/src/imagetoolbar'
+import SimpleBtnStyle from './_utils/Media/styles/simplebtnstyle'
+import Image from '@ckeditor/ckeditor5-image/src/image';
+import ImageToolbar from '@ckeditor/ckeditor5-image/src/imagetoolbar';
+import ImageCaption from '@ckeditor/ckeditor5-image/src/imagecaption';
+import ImageStyle from '@ckeditor/ckeditor5-image/src/imagestyle';
+import ImageResize from '@ckeditor/ckeditor5-image/src/imageresize';
+import LinkImage from '@ckeditor/ckeditor5-link/src/linkimage';
 export default class ClassicEditor extends ClassicEditorBase {}
 
 // Plugins to include in the build.
@@ -84,9 +93,15 @@ ClassicEditor.builtinPlugins = [
 	PageBreak,
 	//MathType,
 	FullScreen,
-	ImageResize
-	//SimpleBtnToolbar,
-	//ImageStyle
+	
+	SimpleBtnToolbar,
+	SimpleBtnStyle,
+	Image,
+	ImageStyle,
+	//ImageToolbar,
+	// ImageCaption,
+	// LinkImage,
+	ImageResize,
 ];
 
 // Editor configuration.
@@ -145,12 +160,20 @@ ClassicEditor.defaultConfig = {
 			'mergeTableCells'
 		]
 	},
-	// simpleBtn: {
-	// 	toolbar: [
-	// 		'imageStyle: alignLeft',
-	// 		'imageStyle: alignRight'
-	// 	]
-	// },
+	simpleBtn: {
+		styles: [
+			'side',
+			'alignLeft',
+			'alignCenter',
+			'alignRight'
+		],
+		toolbar: [
+			'simpleBtnStyle:side',
+			'simpleBtnStyle:alignLeft',
+			'simpleBtnStyle:alignCenter',
+			'simpleBtnStyle:alignRight',
+		]
+	},
 	// This value must be kept in sync with the language defined in webpack.config.js.
 	language: 'en'
 };

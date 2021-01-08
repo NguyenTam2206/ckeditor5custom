@@ -1,7 +1,7 @@
 import Plugin from '@ckeditor/ckeditor5-core/src/plugin'
 import {toWidget, toWidgetEditable} from '@ckeditor/ckeditor5-widget/src/utils'
 import Widget from '@ckeditor/ckeditor5-widget/src/widget'
-
+import { normalizeImageStyles } from './toolbar/toolbarIcon';
 import InsertSimpleBtnCommand from './simplebtncommand'
 
 export default class SimpleBtnEditing extends Plugin {
@@ -14,7 +14,8 @@ export default class SimpleBtnEditing extends Plugin {
         this._defineConverters()
         
         this.editor.commands.add('insertSimpleBtn' , new InsertSimpleBtnCommand( this.editor ))
-        this.editor.commands.add( 'imageResize', new InsertSimpleBtnCommand( this.editor ) );
+        this.editor.commands.add( 'imageResize', new InsertSimpleBtnCommand( this.editor ) )
+        //this.editor.commands.add( 'imageStyle', new InsertSimpleBtnCommand( this.editor ) );
     }
     _defineSchema() {
         const schema = this.editor.model.schema
@@ -49,6 +50,9 @@ export default class SimpleBtnEditing extends Plugin {
         let temp = false;
         //let j = document.getElementsByClassName('my-custom-box').length;
         const conversion = this.editor.conversion;
+
+        //const styles = normalizeImageStyles( this.editor.config.get( 'simpleBtn.styles' ) );
+
         function renderUpcastAttribute( styleAttr ) {
             return viewElement =>  viewElement.getStyle( styleAttr );
         }
@@ -117,7 +121,7 @@ export default class SimpleBtnEditing extends Plugin {
             model: 'simpleBtn',
             view: {
                 name: 'figure',
-                classes: 'image my-custom-box '
+                classes: 'image my-custom-box'
             }
         } )
         conversion.for('dataDowncast').elementToElement( {
@@ -130,14 +134,37 @@ export default class SimpleBtnEditing extends Plugin {
         conversion.for( 'editingDowncast' ).elementToElement( {
             model: 'simpleBtn',
             view: ( modelElement, { writer: viewWriter } ) => {
-                console.log('im editingDowncast')
                 const section = viewWriter.createContainerElement( 
-                'figure', { class: 'image my-custom-box' , style: "display:inline-block"});
+                'figure', { class: 'image my-custom-box' , 
+                //style: "display:inline-block"
+                });
 
                 return toWidget( section, viewWriter, { label: 'simple btn widget' } );
             }
         } );
+        //ADDED
+        // conversion.for( 'downcast' ).add( dispatcher =>
+		// 	dispatcher.on( 'attribute:imageStyle:simpleBtn', ( evt, data, conversionApi ) => {
+        //         console.log('dataDowncast')
+		// 		if ( !conversionApi.consumable.consume( data.item, evt.name ) ) {
+		// 			return;
+		// 		}
+		// 		const newStyle = getStyleByName( data.attributeNewValue, styles );
+        //         const oldStyle = getStyleByName( data.attributeOldValue, styles );
 
+        //         const viewElement = conversionApi.mapper.toViewElement( data.item );
+        //         const viewWriter = conversionApi.writer;
+
+        //         if ( oldStyle ) {
+        //             viewWriter.removeClass( oldStyle.className, viewElement );
+        //         }
+
+        //         if ( newStyle ) {
+        //             viewWriter.addClass( newStyle.className, viewElement );
+        //         }
+		// 	})
+		// );
+        ////-////
         conversion.for( 'downcast' ).add( dispatcher =>
 			dispatcher.on( 'attribute:width:simpleBtn', ( evt, data, conversionApi ) => {
 				if ( !conversionApi.consumable.consume( data.item, evt.name ) ) {
@@ -191,14 +218,14 @@ export default class SimpleBtnEditing extends Plugin {
         conversion.for('upcast').elementToElement( {
             model: 'captionImage',
             view: {
-                name: 'figcaption',
+                name: 'div',
                 classes: 'text-caption'
             }
         } )
         conversion.for('dataDowncast').elementToElement( {
             model: 'captionImage',
             view: {
-                name: 'figcaption',
+                name: 'div',
                 classes: 'text-caption'
             }
         } )
@@ -206,9 +233,11 @@ export default class SimpleBtnEditing extends Plugin {
             model: 'captionImage',
             view: ( modelElement, { writer: viewWriter } ) => {
                 const section = viewWriter.createEditableElement
-                ( 'figcaption', 
-                { class: 'text-caption' , 
-                style: "text-align: center;"});
+                ( 'div', 
+                { 
+                    class: 'text-caption', 
+                    style: "text-align: center;"
+                });
 
                 return toWidgetEditable( section, viewWriter);
             }
