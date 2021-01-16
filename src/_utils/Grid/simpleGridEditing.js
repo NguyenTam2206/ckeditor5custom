@@ -238,6 +238,20 @@ export default class SimpleGridEditing extends Plugin {
                         style: 'float: left; width: 24%' 
                     } );
                 return toWidgetEditable( div, viewWriter );
+                // if( sessionStorage.getItem('type') == 444 ) { 
+                //     const div = viewWriter.createEditableElement( 'div', 
+                //     { 
+                //         class: 'simpleGridCol3',
+                //         style: 'float: left; width: auto' 
+                //     } );
+                //     return toWidgetEditable( div, viewWriter );
+                // }
+                // const div = viewWriter.createEditableElement( 'div', 
+                //     { 
+                //         class: 'simpleGridCol3',
+                //         style: 'float: left; width: auto' 
+                //     } );
+                // return toWidgetEditable( div, viewWriter );
             }
         } );
     }
