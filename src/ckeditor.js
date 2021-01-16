@@ -168,6 +168,7 @@ ClassicEditor.defaultConfig = {
 			'mergeTableCells'
 		]
 	},
+	mediaEmbed: {previewsInData: true},
 	simpleBtn: {
 		styles: [
 			'side',
