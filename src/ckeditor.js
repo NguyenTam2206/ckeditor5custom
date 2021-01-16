@@ -54,6 +54,9 @@ import ImageCaption from '@ckeditor/ckeditor5-image/src/imagecaption';
 import ImageStyle from '@ckeditor/ckeditor5-image/src/imagestyle';
 import ImageResize from '@ckeditor/ckeditor5-image/src/imageresize';
 import LinkImage from '@ckeditor/ckeditor5-link/src/linkimage';
+import RemoveFormat from '@ckeditor/ckeditor5-remove-format/src/removeformat';
+import SimpleGrid from './_utils/Grid/simpleGrid'
+import Highlight from '@ckeditor/ckeditor5-highlight/src/highlight'
 export default class ClassicEditor extends ClassicEditorBase {}
 
 // Plugins to include in the build.
@@ -102,6 +105,9 @@ ClassicEditor.builtinPlugins = [
 	// ImageCaption,
 	// LinkImage,
 	ImageResize,
+	RemoveFormat,
+	SimpleGrid,
+	Highlight
 ];
 
 // Editor configuration.
@@ -129,6 +135,8 @@ ClassicEditor.defaultConfig = {
 			'|',
 			'fullScreen',
 			'|',
+			'removeFormat',
+			'simpleGrid',
 			'link',
 			'insertTable',
 			'mediaEmbed',
