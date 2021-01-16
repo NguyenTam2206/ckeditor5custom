@@ -89,7 +89,7 @@ export default class SimpleGridEditing extends Plugin {
                 const section = viewWriter.createContainerElement( 'section', 
                 { 
                   class: 'simpleGrid', 
-                  style: "overflow: hidden" 
+                  style: "overflow: hidden; display: flex" 
                 } );
 
                 return toWidget( section, viewWriter, { label: 'simple box widget' } );
@@ -114,12 +114,54 @@ export default class SimpleGridEditing extends Plugin {
             model: 'simpleGridCol1',
             view: ( modelElement, { writer: viewWriter } ) => {
                 ////Temp worked
+                // if( sessionStorage.getItem('type') == 444 )
+                // {
+                //     const div = viewWriter.createEditableElement( 'div', 
+                //     { 
+                //         class: 'simpleGridCol1',
+                //         style: 'float: left; width: 31%'
+                //     } );
+                //     return toWidgetEditable( div, viewWriter );
+                // }
+                // else if ( sessionStorage.getItem('type') == 363 ) {
+                //     const div = viewWriter.createEditableElement( 'div', 
+                //     { 
+                //         class: 'simpleGridCol1',
+                //         style: 'float: left; width: 24%'
+                //     } );
+                //     return toWidgetEditable( div, viewWriter );
+                // }
+                // else if ( sessionStorage.getItem('type') == 66) {
+                //     const div = viewWriter.createEditableElement( 'div', 
+                //     { 
+                //         class: 'simpleGridCol1',
+                //         style: 'float: left; width: 50%'
+                //     } );
+                //     return toWidgetEditable( div, viewWriter );
+                // }
+                // else if ( sessionStorage.getItem('type') == 39) {
+                //     const div = viewWriter.createEditableElement( 'div', 
+                //     { 
+                //         class: 'simpleGridCol1',
+                //         style: 'float: left; width: 24%'
+                //     } );
+                //     return toWidgetEditable( div, viewWriter );
+                // }
+                // else if ( sessionStorage.getItem('type') == 93) {
+                //     const div = viewWriter.createEditableElement( 'div', 
+                //     { 
+                //         class: 'simpleGridCol1',
+                //         style: 'float: left; width: 72%'
+                //     } );
+                //     return toWidgetEditable( div, viewWriter );
+                // }
+                //--//
                 if( sessionStorage.getItem('type') == 444 )
                 {
                     const div = viewWriter.createEditableElement( 'div', 
                     { 
                         class: 'simpleGridCol1',
-                        style: 'float: left; width: 31%'
+                        style: 'flex: 1'
                     } );
                     return toWidgetEditable( div, viewWriter );
                 }
@@ -127,7 +169,7 @@ export default class SimpleGridEditing extends Plugin {
                     const div = viewWriter.createEditableElement( 'div', 
                     { 
                         class: 'simpleGridCol1',
-                        style: 'float: left; width: 24%'
+                        style: 'flex: 1'
                     } );
                     return toWidgetEditable( div, viewWriter );
                 }
@@ -135,7 +177,7 @@ export default class SimpleGridEditing extends Plugin {
                     const div = viewWriter.createEditableElement( 'div', 
                     { 
                         class: 'simpleGridCol1',
-                        style: 'float: left; width: 50%'
+                        style: 'flex: 1'
                     } );
                     return toWidgetEditable( div, viewWriter );
                 }
@@ -143,7 +185,7 @@ export default class SimpleGridEditing extends Plugin {
                     const div = viewWriter.createEditableElement( 'div', 
                     { 
                         class: 'simpleGridCol1',
-                        style: 'float: left; width: 24%'
+                        style: 'flex: 1'
                     } );
                     return toWidgetEditable( div, viewWriter );
                 }
@@ -151,7 +193,7 @@ export default class SimpleGridEditing extends Plugin {
                     const div = viewWriter.createEditableElement( 'div', 
                     { 
                         class: 'simpleGridCol1',
-                        style: 'float: left; width: 72%'
+                        style: 'flex: 3'
                     } );
                     return toWidgetEditable( div, viewWriter );
                 }
@@ -175,12 +217,42 @@ export default class SimpleGridEditing extends Plugin {
         conversion.for( 'editingDowncast' ).elementToElement( {
             model: 'simpleGridCol2',
             view: ( modelElement, { writer: viewWriter } ) => {
+                // if ( sessionStorage.getItem('type') == 444)
+                // {
+                //     const div = viewWriter.createEditableElement( 'div', 
+                //     { 
+                //         class: 'simpleGridCol2',
+                //         style: 'float: left; width: 33%'
+                //     } );
+                //     return toWidgetEditable( div, viewWriter );
+                // }
+                // else if ( sessionStorage.getItem('type') == 363 )
+                // {
+                //     const div = viewWriter.createEditableElement( 'div', 
+                //     { 
+                //         class: 'simpleGridCol2',
+                //         style: 'float: left; width: 48%'
+                //     } );
+                //     return toWidgetEditable( div, viewWriter );
+                // }
+                // else if ( ( sessionStorage.getItem('type') == 66 ) ||  
+                //           ( sessionStorage.getItem('type') == 39 ) ||
+                //           ( sessionStorage.getItem('type') == 93 )
+                //         ) {
+                //     const div = viewWriter.createEditableElement( 'div', 
+                //     { 
+                //         class: 'simpleGridCol2',
+                //         style: 'overflow: hidden'
+                //     } );
+                //     return toWidgetEditable( div, viewWriter );
+                // }
+                //--//
                 if ( sessionStorage.getItem('type') == 444)
                 {
                     const div = viewWriter.createEditableElement( 'div', 
                     { 
                         class: 'simpleGridCol2',
-                        style: 'float: left; width: 33%'
+                        style: 'flex: 1'
                     } );
                     return toWidgetEditable( div, viewWriter );
                 }
@@ -189,18 +261,26 @@ export default class SimpleGridEditing extends Plugin {
                     const div = viewWriter.createEditableElement( 'div', 
                     { 
                         class: 'simpleGridCol2',
-                        style: 'float: left; width: 48%'
+                        style: 'flex: 2'
                     } );
                     return toWidgetEditable( div, viewWriter );
                 }
-                else if ( ( sessionStorage.getItem('type') == 66 ) ||  
-                          ( sessionStorage.getItem('type') == 39 ) ||
+                else if(( sessionStorage.getItem('type') == 39 )) {
+                    const div = viewWriter.createEditableElement( 'div', 
+                    { 
+                        class: 'simpleGridCol2',
+                        style: 'flex: 3'
+                    } );
+                    return toWidgetEditable( div, viewWriter );
+                }
+                else if ( ( sessionStorage.getItem('type') == 66 )   
+                           ||
                           ( sessionStorage.getItem('type') == 93 )
                         ) {
                     const div = viewWriter.createEditableElement( 'div', 
                     { 
                         class: 'simpleGridCol2',
-                        style: 'overflow: hidden'
+                        style: 'flex: 1'
                     } );
                     return toWidgetEditable( div, viewWriter );
                 }
@@ -224,34 +304,34 @@ export default class SimpleGridEditing extends Plugin {
         conversion.for( 'editingDowncast' ).elementToElement( {
             model: 'simpleGridCol3',
             view: ( modelElement, { writer: viewWriter } ) => {
-                if( sessionStorage.getItem('type') == 444 ) { 
-                    const div = viewWriter.createEditableElement( 'div', 
-                    { 
-                        class: 'simpleGridCol3',
-                        style: 'float: left; width: 32%' 
-                    } );
-                    return toWidgetEditable( div, viewWriter );
-                }
-                const div = viewWriter.createEditableElement( 'div', 
-                    { 
-                        class: 'simpleGridCol3',
-                        style: 'float: left; width: 24%' 
-                    } );
-                return toWidgetEditable( div, viewWriter );
                 // if( sessionStorage.getItem('type') == 444 ) { 
                 //     const div = viewWriter.createEditableElement( 'div', 
                 //     { 
                 //         class: 'simpleGridCol3',
-                //         style: 'float: left; width: auto' 
+                //         style: 'float: left; width: 32%' 
                 //     } );
                 //     return toWidgetEditable( div, viewWriter );
                 // }
                 // const div = viewWriter.createEditableElement( 'div', 
                 //     { 
                 //         class: 'simpleGridCol3',
-                //         style: 'float: left; width: auto' 
+                //         style: 'float: left; width: 24%' 
                 //     } );
                 // return toWidgetEditable( div, viewWriter );
+                if( sessionStorage.getItem('type') == 444 ) { 
+                    const div = viewWriter.createEditableElement( 'div', 
+                    { 
+                        class: 'simpleGridCol3',
+                        style: 'flex: 1' 
+                    } );
+                    return toWidgetEditable( div, viewWriter );
+                }
+                const div = viewWriter.createEditableElement( 'div', 
+                    { 
+                        class: 'simpleGridCol3',
+                        style: 'flex: 1' 
+                    } );
+                return toWidgetEditable( div, viewWriter );
             }
         } );
     }
