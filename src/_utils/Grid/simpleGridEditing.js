@@ -6,6 +6,7 @@ import Widget from '@ckeditor/ckeditor5-widget/src/widget';
 import InsertSimpleGridCommand from './simpleGridCommand.js'; 
 
 export default class SimpleGridEditing extends Plugin {
+    
     static get requires() {                                                    // ADDED
         return [ Widget ];
     }
@@ -17,7 +18,7 @@ export default class SimpleGridEditing extends Plugin {
 
         this.editor.commands.add( 'insertSimpleGrid', new InsertSimpleGridCommand( this.editor ) );
     }
-    _defineSchema() {                                                          // ADDED
+    _defineSchema() {                                                       // ADDED
         const schema = this.editor.model.schema;
 
         schema.register( 'simpleGrid', {
@@ -66,9 +67,64 @@ export default class SimpleGridEditing extends Plugin {
             }
         } );
     }
-    _defineConverters() {                                                      // ADDED
+    _defineConverters() {      
+        let i = 0;
+        let temp = false;                                                // ADDED
         const conversion = this.editor.conversion;
+        function renderDownCastElement() {
+            return ( modelAttributeValue, { writer: viewWriter } ) => {
+                const length = document.getElementsByClassName('simpleGrid').length
 
+                if(temp == false) {
+                    i = 0
+                    temp = true
+                }
+                if(i < length) {
+                    i++
+                }
+                if(i == length) {
+                    temp = false
+                }
+
+                if ( sessionStorage.getItem('type') == 444)
+                {
+                    const div = viewWriter.createEditableElement( 'div', 
+                    { 
+                        class: 'simpleGridCol2',
+                        style: 'flex: 1'
+                    } );
+                    return toWidgetEditable( div, viewWriter );
+                }
+                else if ( sessionStorage.getItem('type') == 363 )
+                {
+                    const div = viewWriter.createEditableElement( 'div', 
+                    { 
+                        class: 'simpleGridCol2',
+                        style: 'flex: 2'
+                    } );
+                    return toWidgetEditable( div, viewWriter );
+                }
+                else if(( sessionStorage.getItem('type') == 39 )) {
+                    const div = viewWriter.createEditableElement( 'div', 
+                    { 
+                        class: 'simpleGridCol2',
+                        style: 'flex: 3'
+                    } );
+                    return toWidgetEditable( div, viewWriter );
+                }
+                else if ( ( sessionStorage.getItem('type') == 66 )   
+                            ||
+                            ( sessionStorage.getItem('type') == 93 )
+                        ) {
+                    const div = viewWriter.createEditableElement( 'div', 
+                    { 
+                        class: 'simpleGridCol2',
+                        style: 'flex: 1'
+                    } );
+                    return toWidgetEditable( div, viewWriter );
+                }
+            }
+        }
         conversion.for( 'upcast' ).elementToElement( {
             model: 'simpleGrid',
             view: {
@@ -78,11 +134,23 @@ export default class SimpleGridEditing extends Plugin {
         } );
         conversion.for( 'dataDowncast' ).elementToElement( {
             model: 'simpleGrid',
-            view: {
-                name: 'section',
-                classes: 'simpleGrid'
-            }
+            view: renderDownCastForContainer()
+            // {
+            //     name: 'section',
+            //     classes: 'simpleGrid',
+            //     style: 'overflow: hidden; display: flex'
+            // }
         } );
+        function renderDownCastForContainer() {
+            return ( modelAttributeValue, { writer: viewWriter } ) => {
+                const div = viewWriter.createEditableElement( 'section', 
+                { 
+                    class: 'simpleGrid',
+                    style: 'overflow: hidden: display: flex'
+                } );
+                return toWidget( div, viewWriter );
+            }
+        }
         conversion.for( 'editingDowncast' ).elementToElement( {
             model: 'simpleGrid',
             view: ( modelElement, { writer: viewWriter } ) => {
@@ -105,11 +173,18 @@ export default class SimpleGridEditing extends Plugin {
         } );
         conversion.for( 'dataDowncast' ).elementToElement( {
             model: 'simpleGridCol1',
-            view: {
-                name: 'div',
-                classes: 'simpleGridCol1'
-            }
+            view: renderDownCastForCol1()
         } );
+        function renderDownCastForCol1() {
+            return ( modelAttributeValue, { writer: viewWriter } ) => {
+                const div = viewWriter.createEditableElement( 'div', 
+                { 
+                    class: 'simpleGridCol1',
+                    style: 'flex: 1'
+                } );
+                return toWidgetEditable( div, viewWriter );
+            }
+        }
         conversion.for( 'editingDowncast' ).elementToElement( {
             model: 'simpleGridCol1',
             view: ( modelElement, { writer: viewWriter } ) => {
@@ -207,16 +282,23 @@ export default class SimpleGridEditing extends Plugin {
                 classes: 'simpleGridCol2'
             }
         } );
+        // conversion.for( 'dataDowncast' ).elementToElement( {
+        //     model: 'simpleGridCol2',
+        //     view: {
+        //         name: 'div',
+        //         classes: 'simpleGridCol2'
+        //     }
+        // } );
         conversion.for( 'dataDowncast' ).elementToElement( {
             model: 'simpleGridCol2',
-            view: {
-                name: 'div',
-                classes: 'simpleGridCol2'
-            }
+            view: renderDownCastElement()
         } );
         conversion.for( 'editingDowncast' ).elementToElement( {
             model: 'simpleGridCol2',
             view: ( modelElement, { writer: viewWriter } ) => {
+                i = 0
+                temp = true
+
                 // if ( sessionStorage.getItem('type') == 444)
                 // {
                 //     const div = viewWriter.createEditableElement( 'div', 
@@ -296,11 +378,18 @@ export default class SimpleGridEditing extends Plugin {
         } );
         conversion.for( 'dataDowncast' ).elementToElement( {
             model: 'simpleGridCol3',
-            view: {
-                name: 'div',
-                classes: 'simpleGridCol3'
-            }
+            view: renderDownCastForCol3()
         } );
+        function renderDownCastForCol3() {
+            return ( modelAttributeValue, { writer: viewWriter } ) => {
+                const div = viewWriter.createEditableElement( 'div', 
+                { 
+                    class: 'simpleGridCol3',
+                    style: 'flex: 1' 
+                } );
+                return toWidgetEditable( div, viewWriter );
+            }
+        }
         conversion.for( 'editingDowncast' ).elementToElement( {
             model: 'simpleGridCol3',
             view: ( modelElement, { writer: viewWriter } ) => {

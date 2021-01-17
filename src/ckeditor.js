@@ -187,23 +187,22 @@ ClassicEditor.defaultConfig = {
 			'simpleBtnStyle:alignRight',
 		]
 	},
-	resizeOptions: [
-        {
-            name: 'imageResize:original',
-            value: null,
-            label: 'Original'
-        },
-        {
-            name: 'imageResize:50',
-            value: '50',
-            label: '50%'
-        },
-        {
-            name: 'imageResize:75',
-            value: '75',
-            label: '75%'
-        }
-    ],
+	image: {
+		resizeUnit: "%",
+		resizeOptions: [ {
+			name: 'imageResize:original',
+			value: null
+		},
+		{
+			name: 'imageResize:50',
+			value: '50'
+		},
+		{
+			name: 'imageResize:75',
+			value: '75'
+		} ],
+		//toolbar: [ 'imageResize'],
+	},
 	// This value must be kept in sync with the language defined in webpack.config.js.
 	language: 'en'
 };
