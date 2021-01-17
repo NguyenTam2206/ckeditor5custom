@@ -146,7 +146,7 @@ export default class SimpleGridEditing extends Plugin {
                 const div = viewWriter.createEditableElement( 'section', 
                 { 
                     class: 'simpleGrid',
-                    style: 'overflow: hidden: display: flex'
+                    style: 'overflow: hidden; display: flex'
                 } );
                 return toWidget( div, viewWriter );
             }
