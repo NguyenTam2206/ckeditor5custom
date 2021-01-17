@@ -59,8 +59,9 @@ export default class SimpleBtnEditing extends Plugin {
         function renderDowncastElement( ) {
             return ( modelAttributeValue, { writer } ) => {
                 const length = document.getElementsByClassName('my-custom-box').length
+                console.log('--------------------------------------------------------')
                 for(let k = 0; k < document.getElementsByClassName('my-custom-box').length; k++) {
-                    //console.log('im simpleBtn ', document.getElementsByClassName('image-inside')[k].src)
+                    console.log('im simpleBtn ', document.getElementsByClassName('image-inside')[k].src)
                     if(!document.getElementsByClassName('image-inside')[k].src) {
                         sessionStorage.setItem('allocationOfNewImg', k)
                     }
