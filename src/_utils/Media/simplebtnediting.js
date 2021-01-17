@@ -59,7 +59,13 @@ export default class SimpleBtnEditing extends Plugin {
         function renderDowncastElement( ) {
             return ( modelAttributeValue, { writer } ) => {
                 const length = document.getElementsByClassName('my-custom-box').length
-
+                for(let k = 0; k < document.getElementsByClassName('my-custom-box').length; k++) {
+                    //console.log('im simpleBtn ', document.getElementsByClassName('image-inside')[k].src)
+                    if(!document.getElementsByClassName('image-inside')[k].src) {
+                        sessionStorage.setItem('allocationOfNewImg', k)
+                    }
+                }
+                
                 if(temp == false) {
                     i = 0
                     temp = true
@@ -72,8 +78,6 @@ export default class SimpleBtnEditing extends Plugin {
                 }
 
                 if(document.getElementsByClassName('image-inside')[i - 1] == undefined) {
-                    sessionStorage.setItem('allocationOfNewImg', i - 1)
-                    console.log('allocation ', i - 1)
                     return writer.createAttributeElement( 'img', {
                         src: '',
                         style: `width:'';
@@ -199,9 +203,6 @@ export default class SimpleBtnEditing extends Plugin {
         conversion.for( 'editingDowncast' ).elementToElement( {
             model: 'contentImage',
             view: ( modelElement, { writer: viewWriter } ) => {
-                for(let k = 0; k < document.getElementsByClassName('simpleBtn').length; k++) {
-                    console.log('im simpleBtn ', document.getElementsByClassName('simpleBtn')[k])
-                }
                 i = 0
                 temp = true
 
