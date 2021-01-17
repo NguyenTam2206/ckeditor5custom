@@ -199,7 +199,9 @@ export default class SimpleBtnEditing extends Plugin {
         conversion.for( 'editingDowncast' ).elementToElement( {
             model: 'contentImage',
             view: ( modelElement, { writer: viewWriter } ) => {
-
+                for(let k = 0; k < document.getElementsByClassName('simpleBtn').length; k++) {
+                    console.log('im simpleBtn ', document.getElementsByClassName('simpleBtn')[k])
+                }
                 i = 0
                 temp = true
 
