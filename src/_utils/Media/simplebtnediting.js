@@ -90,7 +90,6 @@ export default class SimpleBtnEditing extends Plugin {
                     style: `height: 100%; width: 100%; object-fit: contain`,
                     class: 'image-inside'
                 } , { priority: 7 })
-                
             };
         }
         // conversion.for('upcast').elementToElement( {

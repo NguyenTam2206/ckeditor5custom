@@ -116,6 +116,8 @@ ClassicEditor.builtinPlugins = [
 ClassicEditor.defaultConfig = {
 	toolbar: {
 		items: [
+			'simpleGrid',
+			//'imageResize',
 			//'simpleMedia',
 			'undo',
 			'redo',
@@ -139,7 +141,7 @@ ClassicEditor.defaultConfig = {
 			'fullScreen',
 			'|',
 			'removeFormat',
-			'simpleGrid',
+			
 			'link',
 			'insertTable',
 			'mediaEmbed',
@@ -159,7 +161,7 @@ ClassicEditor.defaultConfig = {
 			'codeBlock',
 			'blockQuote',
 			'horizontalLine',
-			'imageResize'
+			
 			// '|',
 			// 'MathType',
 			// 'ChemType'

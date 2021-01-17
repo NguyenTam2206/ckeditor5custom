@@ -69,7 +69,8 @@ export default class SimpleGridEditing extends Plugin {
     }
     _defineConverters() {      
         let i = 0;
-        let temp = false;                                                // ADDED
+        let temp = false;
+        //console.log(sessionStorage.getItem('type'))                                                // ADDED
         const conversion = this.editor.conversion;
         function renderDownCastElement() {
             return ( modelAttributeValue, { writer: viewWriter } ) => {
@@ -85,8 +86,9 @@ export default class SimpleGridEditing extends Plugin {
                 if(i == length) {
                     temp = false
                 }
-
-                if ( sessionStorage.getItem('type') == 444)
+                //console.log('sesss ' , sessionStorage.getItem('type' + (i)))
+                //console.log('i ' , (i))
+                if ( sessionStorage.getItem('type' + (i)) == 444)
                 {
                     const div = viewWriter.createEditableElement( 'div', 
                     { 
@@ -95,7 +97,7 @@ export default class SimpleGridEditing extends Plugin {
                     } );
                     return toWidgetEditable( div, viewWriter );
                 }
-                else if ( sessionStorage.getItem('type') == 363 )
+                else if ( sessionStorage.getItem('type' + (i)) == 363 )
                 {
                     const div = viewWriter.createEditableElement( 'div', 
                     { 
@@ -104,7 +106,7 @@ export default class SimpleGridEditing extends Plugin {
                     } );
                     return toWidgetEditable( div, viewWriter );
                 }
-                else if(( sessionStorage.getItem('type') == 39 )) {
+                else if(( sessionStorage.getItem('type' + (i)) == 39 )) {
                     const div = viewWriter.createEditableElement( 'div', 
                     { 
                         class: 'simpleGridCol2',
@@ -112,9 +114,9 @@ export default class SimpleGridEditing extends Plugin {
                     } );
                     return toWidgetEditable( div, viewWriter );
                 }
-                else if ( ( sessionStorage.getItem('type') == 66 )   
+                else if ( ( sessionStorage.getItem('type' + (i)) == 66 )   
                             ||
-                            ( sessionStorage.getItem('type') == 93 )
+                            ( sessionStorage.getItem('type' + (i)) == 93 )
                         ) {
                     const div = viewWriter.createEditableElement( 'div', 
                     { 
@@ -154,6 +156,8 @@ export default class SimpleGridEditing extends Plugin {
         conversion.for( 'editingDowncast' ).elementToElement( {
             model: 'simpleGrid',
             view: ( modelElement, { writer: viewWriter } ) => {
+                i = 0
+                temp = true
                 const section = viewWriter.createContainerElement( 'section', 
                 { 
                   class: 'simpleGrid', 
@@ -188,48 +192,6 @@ export default class SimpleGridEditing extends Plugin {
         conversion.for( 'editingDowncast' ).elementToElement( {
             model: 'simpleGridCol1',
             view: ( modelElement, { writer: viewWriter } ) => {
-                ////Temp worked
-                // if( sessionStorage.getItem('type') == 444 )
-                // {
-                //     const div = viewWriter.createEditableElement( 'div', 
-                //     { 
-                //         class: 'simpleGridCol1',
-                //         style: 'float: left; width: 31%'
-                //     } );
-                //     return toWidgetEditable( div, viewWriter );
-                // }
-                // else if ( sessionStorage.getItem('type') == 363 ) {
-                //     const div = viewWriter.createEditableElement( 'div', 
-                //     { 
-                //         class: 'simpleGridCol1',
-                //         style: 'float: left; width: 24%'
-                //     } );
-                //     return toWidgetEditable( div, viewWriter );
-                // }
-                // else if ( sessionStorage.getItem('type') == 66) {
-                //     const div = viewWriter.createEditableElement( 'div', 
-                //     { 
-                //         class: 'simpleGridCol1',
-                //         style: 'float: left; width: 50%'
-                //     } );
-                //     return toWidgetEditable( div, viewWriter );
-                // }
-                // else if ( sessionStorage.getItem('type') == 39) {
-                //     const div = viewWriter.createEditableElement( 'div', 
-                //     { 
-                //         class: 'simpleGridCol1',
-                //         style: 'float: left; width: 24%'
-                //     } );
-                //     return toWidgetEditable( div, viewWriter );
-                // }
-                // else if ( sessionStorage.getItem('type') == 93) {
-                //     const div = viewWriter.createEditableElement( 'div', 
-                //     { 
-                //         class: 'simpleGridCol1',
-                //         style: 'float: left; width: 72%'
-                //     } );
-                //     return toWidgetEditable( div, viewWriter );
-                // }
                 //--//
                 if( sessionStorage.getItem('type') == 444 )
                 {
@@ -272,6 +234,12 @@ export default class SimpleGridEditing extends Plugin {
                     } );
                     return toWidgetEditable( div, viewWriter );
                 }
+                const div = viewWriter.createEditableElement( 'div', 
+                { 
+                    class: 'simpleGridCol1',
+                    style: 'flex: 1'
+                } );
+                return toWidgetEditable( div, viewWriter );
             }
         } );
 
@@ -296,9 +264,6 @@ export default class SimpleGridEditing extends Plugin {
         conversion.for( 'editingDowncast' ).elementToElement( {
             model: 'simpleGridCol2',
             view: ( modelElement, { writer: viewWriter } ) => {
-                i = 0
-                temp = true
-
                 // if ( sessionStorage.getItem('type') == 444)
                 // {
                 //     const div = viewWriter.createEditableElement( 'div', 
