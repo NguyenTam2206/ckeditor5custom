@@ -125,6 +125,12 @@ export default class SimpleGridEditing extends Plugin {
                     } );
                     return toWidgetEditable( div, viewWriter );
                 }
+                const div = viewWriter.createEditableElement( 'div', 
+                { 
+                    class: 'simpleGridCol2',
+                    //style: 'flex: 1'
+                } );
+                return toWidgetEditable( div, viewWriter );
             }
         }
         conversion.for( 'upcast' ).elementToElement( {
