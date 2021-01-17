@@ -72,6 +72,8 @@ export default class SimpleBtnEditing extends Plugin {
                 }
 
                 if(document.getElementsByClassName('image-inside')[i - 1] == undefined) {
+                    sessionStorage.setItem('allocationOfNewImg', i - 1)
+                    console.log('allocation ', i - 1)
                     return writer.createAttributeElement( 'img', {
                         src: '',
                         style: `width:'';

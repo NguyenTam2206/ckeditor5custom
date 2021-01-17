@@ -116,7 +116,7 @@ ClassicEditor.builtinPlugins = [
 ClassicEditor.defaultConfig = {
 	toolbar: {
 		items: [
-			'simpleGrid',
+			
 			//'imageResize',
 			//'simpleMedia',
 			'undo',
@@ -137,6 +137,7 @@ ClassicEditor.defaultConfig = {
 			'fontBackgroundColor',
 			'|',
 			'simpleBtn',
+			'simpleGrid',
 			'|',
 			'fullScreen',
 			'|',
