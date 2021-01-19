@@ -1,0 +1,23 @@
+.ck-content .image.image_resized {
+	max-width: 100%;
+	display: block;
+	box-sizing: border-box;
+}
+.ck-content .image.image_resized img{
+    width: 100%;
+}
+.ck-content .image.image_resized img{
+    display: block;
+}
+
+[dir="ltr"] .ck.ck-button.ck-button_with-text.ck-resize-image-button .ck-button__icon {
+	margin-right: var(--ck-spacing-standard);
+}
+
+[dir="rtl"] .ck.ck-button.ck-button_with-text.ck-resize-image-button .ck-button__icon {
+	margin-left: var(--ck-spacing-standard);
+}
+
+.ck.ck-dropdown .ck-button.ck-resize-image-button .ck-button__label {
+	width: 4em;
+}

@@ -11,8 +11,6 @@ export default class SimpleGridEditing extends Plugin {
         return [ Widget ];
     }
     init() {
-        console.log( 'SimpleGridEditing#init() got called' );
-
         this._defineSchema();  
         this._defineConverters();   
 

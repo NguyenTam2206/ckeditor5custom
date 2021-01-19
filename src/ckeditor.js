@@ -58,6 +58,7 @@ import RemoveFormat from '@ckeditor/ckeditor5-remove-format/src/removeformat';
 import SimpleGrid from './_utils/Grid/simpleGrid'
 import Highlight from '@ckeditor/ckeditor5-highlight/src/highlight'
 import SimpleMedia from './_utils/MediaVideo/simpleMedia'
+import SimpleBtnResize from './_utils/Media/resize/simpleBtnResize'
 export default class ClassicEditor extends ClassicEditorBase {}
 
 // Plugins to include in the build.
@@ -105,7 +106,8 @@ ClassicEditor.builtinPlugins = [
 	//ImageToolbar,
 	// ImageCaption,
 	// LinkImage,
-	ImageResize,
+	//ImageResize,
+	SimpleBtnResize,
 	RemoveFormat,
 	SimpleGrid,
 	Highlight,
@@ -116,8 +118,6 @@ ClassicEditor.builtinPlugins = [
 ClassicEditor.defaultConfig = {
 	toolbar: {
 		items: [
-			
-			//'imageResize',
 			//'simpleMedia',
 			'undo',
 			'redo',
@@ -188,24 +188,25 @@ ClassicEditor.defaultConfig = {
 			'simpleBtnStyle:alignLeft',
 			'simpleBtnStyle:alignCenter',
 			'simpleBtnStyle:alignRight',
+			'simpleBtnResize'
 		]
 	},
-	image: {
-		resizeUnit: "%",
-		resizeOptions: [ {
-			name: 'imageResize:original',
-			value: null
-		},
-		{
-			name: 'imageResize:50',
-			value: '50'
-		},
-		{
-			name: 'imageResize:75',
-			value: '75'
-		} ],
-		//toolbar: [ 'imageResize'],
-	},
+	// image: {
+	// 	resizeUnit: "%",
+	// 	resizeOptions: [ {
+	// 		name: 'imageResize:original',
+	// 		value: null
+	// 	},
+	// 	{
+	// 		name: 'imageResize:50',
+	// 		value: '50'
+	// 	},
+	// 	{
+	// 		name: 'imageResize:75',
+	// 		value: '75'
+	// 	} ],
+	// 	toolbar: [ 'imageResize'],
+	// },
 	// This value must be kept in sync with the language defined in webpack.config.js.
 	language: 'en'
 };
