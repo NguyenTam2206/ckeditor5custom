@@ -175,7 +175,13 @@ ClassicEditor.defaultConfig = {
 			'mergeTableCells'
 		]
 	},
-	mediaEmbed: {previewsInData: true},
+	mediaEmbed: {
+		previewsInData: true,
+		extraProviders: [{
+			name: 'allow-all',
+			url: /^.+/
+		}]
+	},
 	simpleBtn: {
 		styles: [
 			'side',

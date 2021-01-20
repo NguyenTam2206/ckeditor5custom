@@ -59,21 +59,21 @@ export default class SimpleMediaEditing extends Plugin {
         conversion.for( 'upcast' ).elementToElement( {
             model: 'simpleMedia',
             view: {
-                name: 'div',
-                classes: 'simpleMedia'
+                name: 'figure',
+                classes: 'simpleMedia media'
             }
         } );
         conversion.for( 'dataDowncast' ).elementToElement( {
             model: 'simpleMedia',
             view: {
-                name: 'div',
-                classes: 'simpleMedia'
+                name: 'figure',
+                classes: 'simpleMedia media'
             }
         } );
         conversion.for( 'editingDowncast' ).elementToElement( {
             model: 'simpleMedia',
             view: ( modelElement, { writer: viewWriter } ) => {
-                const section = viewWriter.createContainerElement( 'div', { class: 'simpleMedia' } );
+                const section = viewWriter.createContainerElement( 'figure', { class: 'simpleMedia media' } );
 
                 return toWidget( section, viewWriter, { label: 'simple box widget' } );
             }
@@ -82,25 +82,27 @@ export default class SimpleMediaEditing extends Plugin {
         conversion.for( 'upcast' ).elementToElement( {
             model: 'simpleMediaWrapper',
             view: {
-                name: 'video',
+                name: 'div',
+                style: "position: relative; padding-bottom: 100%; height: 0; padding-bottom: 56.2493%;",
                 classes: 'simpleMediaWrapper'
             }
         } );
         conversion.for( 'dataDowncast' ).elementToElement( {
             model: 'simpleMediaWrapper',
             view: {
-                name: 'video',
+                name: 'div',
+                style: "position: relative; padding-bottom: 100%; height: 0; padding-bottom: 56.2493%;",
                 classes: 'simpleMediaWrapper'
             }
         } );
         conversion.for( 'editingDowncast' ).elementToElement( {
             model: 'simpleMediaWrapper',
             view: ( modelElement, { writer: viewWriter } ) => {
-                const section = viewWriter.createContainerElement( 'video', 
+                const section = viewWriter.createContainerElement( 'div', 
                 { 
                     class: 'simpleMediaWrapper',
-                    //style: 'width: 500px; height:500px',
-                    //controls
+                    style: "position: relative; padding-bottom: 100%; height: 0; padding-bottom: 56.2493%;",
+                    'data-oembed-url': 'empty'
                 } );
 
                 return toWidgetEditable( section, viewWriter, { label: 'simple box widget' } );
