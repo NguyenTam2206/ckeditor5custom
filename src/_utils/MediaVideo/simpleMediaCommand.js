@@ -6,6 +6,7 @@ export default class InsertSimpleMediaCommand extends Command {
             // Insert <simpleBox>*</simpleBox> at the current selection position
             // in a way that will result in creating a valid model structure.
             this.editor.model.insertContent( createSimpleMedia( writer ) );
+            
         } );
     }
 
@@ -20,12 +21,15 @@ export default class InsertSimpleMediaCommand extends Command {
 
 function createSimpleMedia( writer ) {
     const simpleMedia = writer.createElement( 'simpleMedia' )
-    const simpleMediaWrapper = writer.createElement( 'simpleMediaWrapper' )
+    //const simpleMediaWrapper = writer.createElement( 'simpleMediaWrapper' )
+    const simpleMediaWrapperContent = writer.createElement( 'simpleMediaWrapperContent' )
     const simpleMediaContent = writer.createElement( 'simpleMediaContent' )
     const simpleMediaDescription = writer.createElement( 'simpleMediaDescription' )
 
-    writer.append( simpleMediaWrapper, simpleMedia )
-    writer.append( simpleMediaContent, simpleMediaWrapper )
+    // writer.append( simpleMediaWrapper, simpleMedia )
+    // writer.append( simpleMediaWrapperContent, simpleMediaWrapper)
+    writer.append( simpleMediaWrapperContent, simpleMedia)
+    writer.append( simpleMediaContent, simpleMediaWrapperContent )
     writer.append( simpleMediaDescription, simpleMedia )
 
     // There must be at least one paragraph for the description to be editable.

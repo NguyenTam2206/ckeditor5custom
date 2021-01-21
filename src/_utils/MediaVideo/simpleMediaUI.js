@@ -1,6 +1,6 @@
 import ButtonView from '@ckeditor/ckeditor5-ui/src/button/buttonview';
 import Plugin from '@ckeditor/ckeditor5-core/src/plugin';
-
+import iconCamera from './cameraIcon.svg'
 export default class SimpleMediaUI extends Plugin {
     init() {
         const editor = this.editor;
@@ -18,11 +18,12 @@ export default class SimpleMediaUI extends Plugin {
             buttonView.set( {
                 // The t() function helps localize the editor. All strings enclosed in t() can be
                 // translated and change when the language of the editor changes.
-                label: t( 'Simple Media' ),
+                //label: t( 'Simple Media' ),
                 withText: true,
-                tooltip: true
+                tooltip: true,
+                icon: iconCamera
             } );
-
+            buttonView.tooltip = () => `Chọn video từ media`
             // Bind the state of the button to the command.
             buttonView.bind( 'isOn', 'isEnabled' ).to( command, 'value', 'isEnabled' );
 

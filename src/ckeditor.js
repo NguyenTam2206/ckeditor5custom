@@ -59,6 +59,7 @@ import SimpleGrid from './_utils/Grid/simpleGrid'
 import Highlight from '@ckeditor/ckeditor5-highlight/src/highlight'
 import SimpleMedia from './_utils/MediaVideo/simpleMedia'
 import SimpleBtnResize from './_utils/Media/resize/simpleBtnResize'
+import SimpleMediaEmbed from './_utils/NewMedia/mediaembed'
 export default class ClassicEditor extends ClassicEditorBase {}
 
 // Plugins to include in the build.
@@ -79,7 +80,7 @@ ClassicEditor.builtinPlugins = [
 	Link,
 	List,
 	TodoList,
-	MediaEmbed,
+	
 	Paragraph,
 	PasteFromOffice,
 	Table,
@@ -111,14 +112,15 @@ ClassicEditor.builtinPlugins = [
 	RemoveFormat,
 	SimpleGrid,
 	Highlight,
-	SimpleMedia
+	SimpleMedia,
+	//MediaEmbed,
+	SimpleMediaEmbed
 ];
 
 // Editor configuration.
 ClassicEditor.defaultConfig = {
 	toolbar: {
 		items: [
-			//'simpleMedia',
 			'undo',
 			'redo',
 			'|',
@@ -137,12 +139,12 @@ ClassicEditor.defaultConfig = {
 			'fontBackgroundColor',
 			'|',
 			'simpleBtn',
+			'simpleMedia',
 			'simpleGrid',
 			'|',
 			'fullScreen',
 			'|',
 			'removeFormat',
-			
 			'link',
 			'insertTable',
 			'mediaEmbed',
