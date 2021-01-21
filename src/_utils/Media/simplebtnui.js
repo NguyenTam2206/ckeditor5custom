@@ -32,6 +32,7 @@ export default class SimpleBtnUI extends Plugin {
             // Execute the command when the button is clicked (executed).
             this.listenTo(buttonView, 'execute', () => {
                 sessionStorage.setItem('openMedia', true)
+                sessionStorage.setItem('typeOpen', 'Image')
                 editor.execute('insertSimpleBtn', { width: '', newImg: true })
             })
             // this.listenTo(buttonView, 'execute', () => {

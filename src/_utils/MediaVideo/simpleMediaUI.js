@@ -29,7 +29,8 @@ export default class SimpleMediaUI extends Plugin {
 
             // Execute the command when the button is clicked (executed).
             this.listenTo( buttonView, 'execute', () => {
-                sessionStorage.setItem("openMedia2", true);
+                sessionStorage.setItem("openMedia", true);
+                sessionStorage.setItem("typeOpen", 'Video');
                 editor.execute( 'insertSimpleMedia' ) 
             });
 
