@@ -177,10 +177,10 @@ ClassicEditor.defaultConfig = {
 	},
 	mediaEmbed: {
 		previewsInData: true,
-		extraProviders: [{
-			name: 'allow-all',
-			url: /^.+/
-		}]
+		// extraProviders: [{
+		// 	name: 'allow-all',
+		// 	url: /^.+/
+		// }]
 	},
 	simpleBtn: {
 		styles: [
