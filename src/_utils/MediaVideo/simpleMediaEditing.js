@@ -184,7 +184,7 @@ export default class SimpleMediaEditing extends Plugin {
                 const section = viewWriter.createContainerElement( 'iframe', 
                 { 
                     class: 'simpleMediaContent',
-                    src: 'sth',
+                    src: 'http://ntv-api.ngn.com.vn/media/600a7b1b664f986be2c54dd7_2021-01-22%2014-12-17.mp4',
                     url: true,
                     allowfullscreen: true,
                     controls: true,
@@ -225,8 +225,7 @@ export default class SimpleMediaEditing extends Plugin {
             return ( modelAttributeValue, { writer } ) => {
                 const length = document.getElementsByClassName('simpleMedia').length
                 for(let k = 0; k < document.getElementsByClassName('simpleMedia').length; k++) {
-                    console.log('src video ' , document.getElementsByClassName('simpleMediaContent')[k].src)
-                    if(document.getElementsByClassName('simpleMediaContent')[k].src == "sth") {
+                    if(document.getElementsByClassName('simpleMediaContent')[k].src == "http://ntv-api.ngn.com.vn/media/600a7b1b664f986be2c54dd7_2021-01-22%2014-12-17.mp4") {
                         sessionStorage.setItem('allocationOfNewVid', k)
                     }
                 }
