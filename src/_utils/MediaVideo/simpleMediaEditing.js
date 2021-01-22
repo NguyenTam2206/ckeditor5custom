@@ -225,7 +225,7 @@ export default class SimpleMediaEditing extends Plugin {
             return ( modelAttributeValue, { writer } ) => {
                 const length = document.getElementsByClassName('simpleMedia').length
                 for(let k = 0; k < document.getElementsByClassName('simpleMedia').length; k++) {
-                    if(!document.getElementsByClassName('simpleMediaContent')[k].src) {
+                    if(document.getElementsByClassName('simpleMediaContent')[k].src == "sth") {
                         sessionStorage.setItem('allocationOfNewVid', k)
                     }
                 }
