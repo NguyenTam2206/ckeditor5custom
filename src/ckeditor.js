@@ -121,6 +121,8 @@ ClassicEditor.builtinPlugins = [
 ClassicEditor.defaultConfig = {
 	toolbar: {
 		items: [
+			'removeFormat',
+			'|',
 			'undo',
 			'redo',
 			'|',
@@ -144,7 +146,7 @@ ClassicEditor.defaultConfig = {
 			'|',
 			'fullScreen',
 			'|',
-			'removeFormat',
+			
 			'link',
 			'insertTable',
 			'mediaEmbed',
