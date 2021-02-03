@@ -99,7 +99,7 @@ export default class SimpleMediaEditing extends Plugin {
             return ( modelAttributeValue, { writer: viewWriter } ) => {
                 const section = viewWriter.createContainerElement( 'figure', { 
                     class: 'simpleMedia media',
-                    style: 'float: left; margin-right: 10px'
+                    style: 'margin-right: 10px'
                 } );
                 return toWidget( section, viewWriter, { label: 'simple box widget' } );
             }
@@ -109,7 +109,7 @@ export default class SimpleMediaEditing extends Plugin {
             view: ( modelElement, { writer: viewWriter } ) => {
                 const section = viewWriter.createContainerElement( 'figure', { 
                     class: 'simpleMedia media',
-                    style: 'float: left'
+                    style: ''
                 } );
                 return toWidget( section, viewWriter, { label: 'simple box widget' } );
             }
