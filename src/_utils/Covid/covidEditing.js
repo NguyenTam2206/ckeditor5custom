@@ -1,5 +1,6 @@
 import Plugin from '@ckeditor/ckeditor5-core/src/plugin'
 import Widget from '@ckeditor/ckeditor5-widget/src/widget'
+import {toWidget, toWidgetEditable} from '@ckeditor/ckeditor5-widget/src/utils'
 
 export default class covidEditing extends Plugin {
     static get requires() {
