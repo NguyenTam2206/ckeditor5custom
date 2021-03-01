@@ -60,6 +60,8 @@ import Highlight from '@ckeditor/ckeditor5-highlight/src/highlight'
 import SimpleMedia from './_utils/MediaVideo/simpleMedia'
 import SimpleBtnResize from './_utils/Media/resize/simpleBtnResize'
 import SimpleMediaEmbed from './_utils/NewMedia/mediaembed'
+import Covid from './_utils/Covid/covid'
+
 export default class ClassicEditor extends ClassicEditorBase {}
 
 // Plugins to include in the build.
@@ -114,7 +116,8 @@ ClassicEditor.builtinPlugins = [
 	Highlight,
 	SimpleMedia,
 	//MediaEmbed,
-	SimpleMediaEmbed
+	SimpleMediaEmbed,
+	Covid
 ];
 
 // Editor configuration.
