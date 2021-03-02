@@ -1,7 +1,7 @@
 import Plugin from '@ckeditor/ckeditor5-core/src/plugin'
 import Widget from '@ckeditor/ckeditor5-widget/src/widget'
 import {toWidget, toWidgetEditable} from '@ckeditor/ckeditor5-widget/src/utils'
-
+import InsertSimpleBtnCommand from './covidCommand'
 export default class covidEditing extends Plugin {
     static get requires() {
         return [ Widget ]
@@ -9,6 +9,8 @@ export default class covidEditing extends Plugin {
     init() {
         this._defineSchema()
         this._defineConverters()
+
+        this.editor.commands.add( 'insertCovid', new InsertSimpleBtnCommand( this.editor ) )
     }
     _defineSchema() {
         const schema = this.editor.model.schema

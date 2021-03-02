@@ -124,6 +124,7 @@ ClassicEditor.builtinPlugins = [
 ClassicEditor.defaultConfig = {
 	toolbar: {
 		items: [
+			//'covid',
 			'removeFormat',
 			'|',
 			'undo',
