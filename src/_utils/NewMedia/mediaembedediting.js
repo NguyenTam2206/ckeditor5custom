@@ -42,8 +42,6 @@ export default class MediaEmbedEditing extends Plugin {
 					url: /^ntv-api\.ngn\.com\.vn\/media\/(\w+)/,
 					html: match => {
 						const id = match[ 1 ];
-						console.log('im id ', id)
-						console.log('im match ', match)
 						return (
 							'<div style="position: relative; padding-bottom: 100%; height: 0; ">' +
 								`<iframe src="http://ntv-api.ngn.com.vn/media/${ id }.mp4" ` +
@@ -53,7 +51,8 @@ export default class MediaEmbedEditing extends Plugin {
 							'</div>'
 						);
 					}
-				},
+				}
+				,
 				{
 					name: 'youtube',
 					url: [

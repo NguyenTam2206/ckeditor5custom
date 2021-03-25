@@ -31,6 +31,27 @@ export default class SimpleMediaEditing extends Plugin {
 						);
 					}
 				},
+				{
+					name: 'youtube',
+					url: [
+						/^(?:m\.)?youtube\.com\/watch\?v=([\w-]+)/,
+						/^(?:m\.)?youtube\.com\/v\/([\w-]+)/,
+						/^youtube\.com\/embed\/([\w-]+)/,
+						/^youtu\.be\/([\w-]+)/
+					],
+					html: match => {
+						const id = match[ 1 ];
+
+						return (
+							'<div style="position: relative; padding-bottom: 100%; height: 0; padding-bottom: 56.2493%;">' +
+								`<iframe src="https://www.youtube.com/embed/${ id }" ` +
+									'style="position: absolute; width: 100%; height: 100%; top: 0; left: 0;" ' +
+									'frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>' +
+								'</iframe>' +
+							'</div>'
+						);
+					}
+				}
 			]
 		} );
 		this.registry = new MediaRegistry( editor.locale, editor.config.get( 'mediaEmbed' ) );
@@ -41,7 +62,7 @@ export default class SimpleMediaEditing extends Plugin {
         this._defineConverters(registry)
 
         this.editor.commands.add( 'insertSimpleMedia', new InsertSimpleMediaCommand( this.editor ) );
-        
+
     }
     _defineSchema() {                                                          // ADDED
         const schema = this.editor.model.schema;
@@ -77,7 +98,7 @@ export default class SimpleMediaEditing extends Plugin {
             allowContentOf: '$block'
         } );
     }
-    _defineConverters(registry) {   
+    _defineConverters(registry) {
         let i = 0;
         let temp = false;
 
@@ -97,7 +118,7 @@ export default class SimpleMediaEditing extends Plugin {
         } );
         function renderContainerVideoDowncast() {
             return ( modelAttributeValue, { writer: viewWriter } ) => {
-                const section = viewWriter.createContainerElement( 'figure', { 
+                const section = viewWriter.createContainerElement( 'figure', {
                     class: 'simpleMedia media',
                     style: 'margin-right: 10px'
                 } );
@@ -107,7 +128,7 @@ export default class SimpleMediaEditing extends Plugin {
         conversion.for( 'editingDowncast' ).elementToElement( {
             model: 'simpleMedia',
             view: ( modelElement, { writer: viewWriter } ) => {
-                const section = viewWriter.createContainerElement( 'figure', { 
+                const section = viewWriter.createContainerElement( 'figure', {
                     class: 'simpleMedia media',
                     style: ''
                 } );
@@ -155,8 +176,8 @@ export default class SimpleMediaEditing extends Plugin {
         conversion.for( 'editingDowncast' ).elementToElement( {
             model: 'simpleMediaWrapperContent',
             view: ( modelElement, { writer: viewWriter } ) => {
-                const section = viewWriter.createContainerElement( 'div', 
-                { 
+                const section = viewWriter.createContainerElement( 'div',
+                {
                     class: 'simpleMediaWrapperContent',
                     style: ''
                 } );
@@ -181,8 +202,8 @@ export default class SimpleMediaEditing extends Plugin {
             view: ( modelElement, { writer: viewWriter } ) => {
                 i = 0
                 temp = true
-                const section = viewWriter.createContainerElement( 'iframe', 
-                { 
+                const section = viewWriter.createContainerElement( 'iframe',
+                {
                     class: 'simpleMediaContent',
                     src: 'http://ntv-api.ngn.com.vn/media/600a7b1b664f986be2c54dd7_2021-01-22%2014-12-17.mp4',
                     url: true,
@@ -211,9 +232,9 @@ export default class SimpleMediaEditing extends Plugin {
         conversion.for( 'editingDowncast' ).elementToElement( {
             model: 'simpleMediaDescription',
             view: ( modelElement, { writer: viewWriter } ) => {
-                const section = viewWriter.createEditableElement( 'div', 
-                { 
-                    class: 'text-caption', 
+                const section = viewWriter.createEditableElement( 'div',
+                {
+                    class: 'text-caption',
                     style: "text-align: center;"
                 });
 
@@ -257,6 +278,6 @@ export default class SimpleMediaEditing extends Plugin {
                     class: 'simpleMediaContent'
                 } , { priority: 7 })
             }
-        }    
+        }
     }
 }

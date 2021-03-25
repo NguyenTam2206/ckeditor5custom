@@ -27,7 +27,7 @@ import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
 import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformation';
 import Undo from '@ckeditor/ckeditor5-undo/src/undo'
 import SimpleBtn from './_utils/Media/simplebtn'
-import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment'; 
+import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment';
 import FontSize from '@ckeditor/ckeditor5-font/src/fontsize'
 import FontFamily from '@ckeditor/ckeditor5-font/src/fontfamily'
 import FontColor from '@ckeditor/ckeditor5-font/src/fontcolor'
@@ -76,13 +76,13 @@ ClassicEditor.builtinPlugins = [
 	Underline,
 	BlockQuote,
 	HorizontalLine,
-	EasyImage,
+	//EasyImage,
 	Heading,
 	Indent,
 	Link,
 	List,
 	TodoList,
-	
+
 	Paragraph,
 	PasteFromOffice,
 	Table,
@@ -96,12 +96,12 @@ ClassicEditor.builtinPlugins = [
 	FontColor,
 	FontBackgroundColor,
 	CodeBlock,
-	SpecialCharacters, 
+	SpecialCharacters,
 	SpecialCharactersEssentials,
 	PageBreak,
 	//MathType,
 	FullScreen,
-	
+
 	SimpleBtnToolbar,
 	SimpleBtnStyle,
 	Image,
@@ -150,13 +150,13 @@ ClassicEditor.defaultConfig = {
 			'|',
 			'fullScreen',
 			'|',
-			
+
 			'link',
 			'insertTable',
 			'mediaEmbed',
 			'|',
 			'specialCharacters',
-			'subscript', 
+			'subscript',
 			'superscript',
 			'|',
 			'bulletedList',
@@ -170,7 +170,7 @@ ClassicEditor.defaultConfig = {
 			'codeBlock',
 			'blockQuote',
 			'horizontalLine',
-			
+
 			// '|',
 			// 'MathType',
 			// 'ChemType'
