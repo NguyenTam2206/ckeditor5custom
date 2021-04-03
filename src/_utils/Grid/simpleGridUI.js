@@ -13,7 +13,7 @@ import { createDropdown, addToolbarToDropdown } from '@ckeditor/ckeditor5-ui/src
 //import './../theme/highlight.css';
 
 export default class SimpleGridUI extends Plugin {
-    
+
     init() {
         // console.log( 'SimpleGridUI#init() got called' );
         const options = [
@@ -23,42 +23,43 @@ export default class SimpleGridUI extends Plugin {
                 title: "Col Grid 6 6",
                 icon: col66Icon
             },
-            {
-                class: "col39",
-                model: "col39",
-                title: "Col Grid 3 9",
-                icon: col39Icon
-			},
-			{
-                class: "col93",
-                model: "col93",
-                title: "Col Grid 9 3",
-                icon: col93Icon
-            },
+            // {
+            //     class: "col39",
+            //     model: "col39",
+            //     title: "Col Grid 3 9",
+            //     icon: col39Icon
+			// },
+			// {
+            //     class: "col93",
+            //     model: "col93",
+            //     title: "Col Grid 9 3",
+            //     icon: col93Icon
+            // },
             {
                 class: "col444",
                 model: "col444",
                 title: "Col Grid 4 4 4",
                 icon: col444Icon
-			},
-			{
-                class: "col363",
-                model: "col363",
-                title: "Col Grid 3 6 3",
-                icon: col363Icon
-            }
+			}
+			//,
+			// {
+            //     class: "col363",
+            //     model: "col363",
+            //     title: "Col Grid 3 6 3",
+            //     icon: col363Icon
+            // }
         ]
         const editor = this.editor;
         const t = editor.t;
 
 		this._addCol66Button();
-		this._addCol39Button();
-		this._addCol93Button();
-        this._addCol363Button();
+		//this._addCol39Button();
+		//this._addCol93Button();
+        //this._addCol363Button();
 		this._addCol444Button();
 
 		this._addDropdown( options );
-		
+
         // editor.ui.componentFactory.add( 'simpleGrid', locale => {
         //     // The state of the button will be bound to the widget command.
         //     const command = editor.commands.get( 'insertSimpleGrid' );
@@ -193,10 +194,10 @@ export default class SimpleGridUI extends Plugin {
 			// Add separator and eraser buttons to dropdown.
 			//buttons.push( new ToolbarSeparatorView() );
 			buttons.push( componentFactory.create( 'insertGrid66' ) );
-			buttons.push( componentFactory.create( 'insertGrid39' ) );
-			buttons.push( componentFactory.create( 'insertGrid93' ) );
+			//buttons.push( componentFactory.create( 'insertGrid39' ) );
+			//buttons.push( componentFactory.create( 'insertGrid93' ) );
 			buttons.push( componentFactory.create( 'insertGrid444' ) );
-			buttons.push( componentFactory.create( 'insertGrid363' ) );
+			//buttons.push( componentFactory.create( 'insertGrid363' ) );
 
 			addToolbarToDropdown( dropdownView, buttons );
 

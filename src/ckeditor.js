@@ -102,14 +102,17 @@ ClassicEditor.builtinPlugins = [
 	//MathType,
 	FullScreen,
 
-	SimpleBtnToolbar,
+	//Note: Simplte Btn toolbar conflict with imagetoolbar
+	//SimpleBtnToolbar,
 	SimpleBtnStyle,
 	Image,
 	ImageStyle,
-	//ImageToolbar,
-	// ImageCaption,
+
+	ImageToolbar,
+	ImageCaption,
 	// LinkImage,
-	//ImageResize,
+	ImageResize,
+
 	SimpleBtnResize,
 	RemoveFormat,
 	SimpleGrid,
@@ -205,22 +208,29 @@ ClassicEditor.defaultConfig = {
 			'simpleBtnResize'
 		]
 	},
-	// image: {
-	// 	resizeUnit: "%",
-	// 	resizeOptions: [ {
-	// 		name: 'imageResize:original',
-	// 		value: null
-	// 	},
-	// 	{
-	// 		name: 'imageResize:50',
-	// 		value: '50'
-	// 	},
-	// 	{
-	// 		name: 'imageResize:75',
-	// 		value: '75'
-	// 	} ],
-	// 	toolbar: [ 'imageResize'],
-	// },
+	image: {
+		styles: [
+			'alignLeft', 'alignCenter', 'alignRight'
+		],
+		resizeUnit: "%",
+		resizeOptions: [ {
+			name: 'imageResize:original',
+			value: null
+		},
+		{
+			name: 'imageResize:25',
+			value: '25'
+		},
+		{
+			name: 'imageResize:50',
+			value: '50'
+		},
+		{
+			name: 'imageResize:75',
+			value: '75'
+		} ],
+		toolbar: [ 'imageStyle:alignLeft', 'imageStyle:alignCenter', 'imageStyle:alignRight', '|','imageResize'],
+	},
 	// This value must be kept in sync with the language defined in webpack.config.js.
 	language: 'en'
 };

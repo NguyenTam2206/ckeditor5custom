@@ -8,7 +8,6 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 	<style>
 		body {
-			max-width: 800px;
 			margin: 20px auto;
 		}
 		.simpleGrid {
@@ -56,8 +55,8 @@
 <script src="../build/ckeditor.js"></script>
 <script>
 	let check = () => {
-		let video = 'http://ntv-api.ngn.com.vn/media/5fb80a5cba48aa06ee82299e_screen-recording.webm'
-		document.getElementsByClassName('simpleMediaContent')[0].src = video
+		let video = 'http://cms-api.ngn.com.vn/media/60198d0a3b03d94d646fd1cc_79308_12.png'
+		document.getElementsByClassName('image-inside')[0].src = video
 		//document.getElementsByClassName('simpleMediaContentWebm')[0].src = video
 		// let url = `http://ntv-api.ngn.com.vn/media/5fe0983dd6157530b19a19d9_BookCover1.png`
 		// // let width = '200px'
@@ -65,7 +64,7 @@
 		// document.getElementsByClassName("image-inside")[0].src = url
 		// // document.getElementsByClassName("image-inside")[0].style.maxWidth = "100%"
 		// // document.getElementsByClassName("image-inside")[0].style.height = height
-		// //.setAttribute("style",`background-image: ${url};width: ${width};height: ${height}`)		
+		// //.setAttribute("style",`background-image: ${url};width: ${width};height: ${height}`)
 	}
 	let check2 = () => {
 		let video = `http://ntv-api.ngn.com.vn/media/6003f9160dcd0b4bf03289a2_videoplayback.mp4`
@@ -73,7 +72,7 @@
 		// let height = '200px'
 		document.getElementsByClassName('simpleMediaContent')[1].src = video
 		//document.getElementsByClassName("image-inside")[1].style.maxWidth = "100%"
-		//.setAttribute("style",`background-image: ${url};width: ${width};height: ${height}`)		
+		//.setAttribute("style",`background-image: ${url};width: ${width};height: ${height}`)
 	}
 	let check3 = () => {
 		let url = `http://ntv-api.ngn.com.vn/media/5fe58b39d6157530b19abb51_5a392b02733f003c3feea6cd5e140c53.webp`
@@ -81,7 +80,7 @@
 		//let height = '200px'
 		document.getElementsByClassName("image-inside")[2].src = url
 		//document.getElementsByClassName("image-inside")[2].style.maxWidth = "100%"
-		//.setAttribute("style",`background-image: ${url};width: ${width};height: ${height}`)		
+		//.setAttribute("style",`background-image: ${url};width: ${width};height: ${height}`)
 
 	}
 </script>
@@ -89,30 +88,10 @@
 	ClassicEditor.create( document.querySelector( '#editor' ) )
 		.then( editor => {
 			window.editor = editor;
-
-			// editor.model.schema.extend( 'image', { allowAttributes: 'dSource' } );
-
-			// editor.conversion.for( 'upcast' ).attributeToAttribute( {
-			// 	view: 'data-source',
-			// 	model: 'dSource'
-			// } );
-
-			// editor.conversion.for( 'downcast' ).add( dispatcher => {
-			// 	editor.conversion.for( 'dataDowncast' ).add( dispatcher => {
-			// 		dispatcher.on(
-			// 			'attribute:linkHref',
-			// 			( evt, data, conversionApi ) => {
-			// 				// if ( !conversionApi.consumable.test( data.item, 'attribute:linkHref' ) ) {
-			// 				// 	return;
-			// 				// }
-			// 				// if ( data.attributeNewValue ) {
-			// 				// 	data.attributeNewValue += `#time=${ ( new Date() ).getTime() }`;
-			// 				// }
-			// 			},
-			// 			{ priority: 'high' }
-			// 		);
-			// 	} );
-			// } );
+			sessionStorage.removeItem('articleContent')
+			// sessionStorage.setItem('articleContent',
+			// '')
+			editor.setData('<figure class="image image_resized image-style-align-right" style="width:27.19%;"><img src="http://cms-api.ngn.com.vn/media/60198d0a3b03d94d646fd1cc_79308_12.png"><figcaption>dcdcdscdscdscdscdsc</figcaption></figure>')
 		} )
 		.catch( error => {
 			console.error( 'There was a problem initializing the editor.', error );

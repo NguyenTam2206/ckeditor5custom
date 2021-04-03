@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>CKEditor 5 – classic editor build – development sample</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<style>
+		body {
+			margin: 20px auto;
+		}
+		.simpleGrid {
+			padding: 10px;
+			margin: 1em 0;
+
+			background: rgba( 0, 0, 0, 0.1 );
+			border: solid 1px hsl(0, 0%, 77%);
+			border-radius: 2px;
+		}
+
+		.simpleGridCol1, .simpleGridCol2, .simpleGridCol3 {
+			padding: 10px;
+			margin: 4px;
+
+			background: #FFF;
+			border: solid 1px hsl(0, 0%, 77%);
+		}
+		/* .simpleMediaWrapper {
+			position: absolute
+		} */
+		/* .simpleGrid
+		{
+			text-align:center;
+		}
+		.simpleGridCol1, .simpleGridCol2
+		{
+			display:inline;
+		} */
+	</style>
+</head>
+<body>
+
+<h1>CKEditor 5 – classic editor build – development sample</h1>
+<button onclick="check()"">hinh1</button>
+<button onclick="check2()">hin2h</button>
+<button onclick="check3()">hinh3</button>
+<button onclick="console.log(editor.getData())">Data</button>
+<div class="container">
+	<div id="editor">
+	</div>
+</div>
+
+
+<script src="../build/ckeditor.js"></script>
+<script>
+	let check = () => {
+		let video = 'http://cms-api.ngn.com.vn/media/60198d0a3b03d94d646fd1cc_79308_12.png'
+		document.getElementsByClassName('image-inside')[0].src = video
+		//document.getElementsByClassName('simpleMediaContentWebm')[0].src = video
+		// let url = `http://ntv-api.ngn.com.vn/media/5fe0983dd6157530b19a19d9_BookCover1.png`
+		// // let width = '200px'
+		// // let height = '200px'
+		// document.getElementsByClassName("image-inside")[0].src = url
+		// // document.getElementsByClassName("image-inside")[0].style.maxWidth = "100%"
+		// // document.getElementsByClassName("image-inside")[0].style.height = height
+		// //.setAttribute("style",`background-image: ${url};width: ${width};height: ${height}`)
+	}
+	let check2 = () => {
+		let video = `http://ntv-api.ngn.com.vn/media/6003f9160dcd0b4bf03289a2_videoplayback.mp4`
+		// let width = '200px'
+		// let height = '200px'
+		document.getElementsByClassName('simpleMediaContent')[1].src = video
+		//document.getElementsByClassName("image-inside")[1].style.maxWidth = "100%"
+		//.setAttribute("style",`background-image: ${url};width: ${width};height: ${height}`)
+	}
+	let check3 = () => {
+		let url = `http://ntv-api.ngn.com.vn/media/5fe58b39d6157530b19abb51_5a392b02733f003c3feea6cd5e140c53.webp`
+		//let width = '200px'
+		//let height = '200px'
+		document.getElementsByClassName("image-inside")[2].src = url
+		//document.getElementsByClassName("image-inside")[2].style.maxWidth = "100%"
+		//.setAttribute("style",`background-image: ${url};width: ${width};height: ${height}`)
+
+	}
+</script>
+<script>
+	ClassicEditor.create( document.querySelector( '#editor' ) )
+		.then( editor => {
+			window.editor = editor;
+			sessionStorage.clear()
+			sessionStorage.setItem('articleContent',
+			'<h2>dscsdcdscsdcsdcdscdscds</h2><p>bbbbbb</p><section class="simpleGrid ck-widget" style="display:flex;overflow:hidden;" contenteditable="false"><div class="simpleGridCol1 ck-editor__editable ck-editor__nested-editable" style="flex:1;" contenteditable="true"><p>fdfdf</p></div><div class="simpleGridCol2 ck-editor__editable ck-editor__nested-editable" style="flex:1;" contenteditable="true"><p>dfdfdfdf</p></div></section><p>ddddddddd</p><p>gg</p><p>ffffdddd</p><p>dssasasasasasf</p><p>dddffd</p><p>dfdđdfdfdf</p><p>dfdf</p><p>df</p><p>&nbsp;</p><p>&nbsp;</p><h2>dscsdcdscsdcsdcdscdscds</h2><p>bbbbbb</p><section class="simpleGrid ck-widget" style="display:flex;overflow:hidden;" contenteditable="false"><div class="simpleGridCol1 ck-editor__editable ck-editor__nested-editable" style="flex:1;" contenteditable="true"><p>fdfdf</p></div><div class="simpleGridCol2 ck-editor__editable ck-editor__nested-editable" style="flex:1;" contenteditable="true"><p>dfdfdfdf</p></div></section><p>ddddddddd</p><p>gg</p><p>ffffdddd</p><p>dssasasasasasf</p><p>dddffd</p><p>dfdđdfdfdf</p><p>dfdf</p><p>df</p><p>&nbsp;</p><p>&nbsp;</p>')
+			editor.setData('<h2>dscsdcdscsdcsdcdscdscds</h2><p>bbbbbb</p><section class="simpleGrid ck-widget" style="display:flex;overflow:hidden;" contenteditable="false"><div class="simpleGridCol1 ck-editor__editable ck-editor__nested-editable" style="flex:1;" contenteditable="true"><p>fdfdf</p></div><div class="simpleGridCol2 ck-editor__editable ck-editor__nested-editable" style="flex:1;" contenteditable="true"><p>dfdfdfdf</p></div></section><p>ddddddddd</p><p>gg</p><p>ffffdddd</p><p>dssasasasasasf</p><p>dddffd</p><p>dfdđdfdfdf</p><p>dfdf</p><p>df</p><p>&nbsp;</p><p>&nbsp;</p><h2>dscsdcdscsdcsdcdscdscds</h2><p>bbbbbb</p><section class="simpleGrid ck-widget" style="display:flex;overflow:hidden;" contenteditable="false"><div class="simpleGridCol1 ck-editor__editable ck-editor__nested-editable" style="flex:1;" contenteditable="true"><p>fdfdf</p></div><div class="simpleGridCol2 ck-editor__editable ck-editor__nested-editable" style="flex:1;" contenteditable="true"><p>dfdfdfdf</p></div></section><p>ddddddddd</p><p>gg</p><p>ffffdddd</p><p>dssasasasasasf</p><p>dddffd</p><p>dfdđdfdfdf</p><p>dfdf</p><p>df</p><p>&nbsp;</p><p>&nbsp;</p>')
+		} )
+		.catch( error => {
+			console.error( 'There was a problem initializing the editor.', error );
+		} );
+</script>
+
+</body>
+</html>

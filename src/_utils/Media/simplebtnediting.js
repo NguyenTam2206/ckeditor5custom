@@ -12,14 +12,14 @@ export default class SimpleBtnEditing extends Plugin {
     init() {
         this._defineSchema()
         this._defineConverters()
-        
+
         this.editor.commands.add('insertSimpleBtn' , new InsertSimpleBtnCommand( this.editor ))
         this.editor.commands.add( 'imageResize', new InsertSimpleBtnCommand( this.editor ) )
         //this.editor.commands.add( 'imageStyle', new InsertSimpleBtnCommand( this.editor ) );
     }
     _defineSchema() {
         const schema = this.editor.model.schema
-        
+
         schema.register('simpleBtn', {
             isObject: true,
             isBlock: true,
@@ -39,9 +39,9 @@ export default class SimpleBtnEditing extends Plugin {
         schema.register('captionImage' , {
             isLimit: true,
             isObject: true,
-            
+
             allowIn: 'simpleBtn',
-            
+
             allowContentOf: '$block'
         })
     }
@@ -64,7 +64,7 @@ export default class SimpleBtnEditing extends Plugin {
                         sessionStorage.setItem('allocationOfNewImg', k)
                     }
                 }
-                
+
                 if(temp == false) {
                     i = 0
                     temp = true
@@ -114,7 +114,7 @@ export default class SimpleBtnEditing extends Plugin {
         // conversion.for( 'editingDowncast' ).elementToElement( {
         //     model: 'simpleBtn',
         //     view: ( modelElement, { writer: viewWriter } ) => {
-        //         const section = viewWriter.createContainerElement( 
+        //         const section = viewWriter.createContainerElement(
         //         'div', { class: 'my-custom-box' , style: "display:inline-block"});
 
         //         return toWidget( section, viewWriter, { label: 'simple btn widget' } );
@@ -138,8 +138,8 @@ export default class SimpleBtnEditing extends Plugin {
         conversion.for( 'editingDowncast' ).elementToElement( {
             model: 'simpleBtn',
             view: ( modelElement, { writer: viewWriter } ) => {
-                const section = viewWriter.createContainerElement( 
-                'figure', { class: 'image my-custom-box' , 
+                const section = viewWriter.createContainerElement(
+                'figure', { class: 'image my-custom-box' ,
                 //style: "display:inline-block"
                 });
 
@@ -206,8 +206,8 @@ export default class SimpleBtnEditing extends Plugin {
                 temp = true
 
                 const section = viewWriter.createAttributeElement
-                ( 'img', 
-                { class: 'image-inside' , 
+                ( 'img',
+                { class: 'image-inside' ,
                 src: null,
                 style: `width:'';
                         height:''`});
@@ -221,14 +221,14 @@ export default class SimpleBtnEditing extends Plugin {
         conversion.for('upcast').elementToElement( {
             model: 'captionImage',
             view: {
-                name: 'div',
+                name: 'figcaption',
                 classes: 'text-caption'
             }
         } )
         conversion.for('dataDowncast').elementToElement( {
             model: 'captionImage',
             view: {
-                name: 'div',
+                name: 'figcaption',
                 classes: 'text-caption'
             }
         } )
@@ -236,9 +236,9 @@ export default class SimpleBtnEditing extends Plugin {
             model: 'captionImage',
             view: ( modelElement, { writer: viewWriter } ) => {
                 const section = viewWriter.createEditableElement
-                ( 'div', 
-                { 
-                    class: 'text-caption', 
+                ( 'figcaption',
+                {
+                    class: 'text-caption',
                     style: "text-align: center;"
                 });
 
