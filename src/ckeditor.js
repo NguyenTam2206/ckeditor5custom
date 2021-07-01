@@ -12,7 +12,6 @@ import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold';
 import Italic from '@ckeditor/ckeditor5-basic-styles/src/italic';
 import Underline from '@ckeditor/ckeditor5-basic-styles/src/underline';
 import Strikethrough from '@ckeditor/ckeditor5-basic-styles/src/strikethrough';
-import BlockQuote from '@ckeditor/ckeditor5-block-quote/src/blockquote';
 import EasyImage from '@ckeditor/ckeditor5-easy-image/src/easyimage';
 import Heading from '@ckeditor/ckeditor5-heading/src/heading';
 import Indent from '@ckeditor/ckeditor5-indent/src/indent';
@@ -61,6 +60,7 @@ import SimpleMedia from './_utils/MediaVideo/simpleMedia'
 import SimpleBtnResize from './_utils/Media/resize/simpleBtnResize'
 import SimpleMediaEmbed from './_utils/NewMedia/mediaembed'
 import Covid from './_utils/Covid/covid'
+import BlockQuote from './_utils/BlockQuote/blockquote';
 
 export default class ClassicEditor extends ClassicEditorBase {}
 

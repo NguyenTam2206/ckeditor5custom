@@ -10,7 +10,7 @@
 import { Plugin, icons } from 'ckeditor5/src/core';
 import { ButtonView } from 'ckeditor5/src/ui';
 
-import '../theme/blockquote.css';
+// import '../theme/blockquote.css';
 
 /**
  * The block quote UI plugin.
