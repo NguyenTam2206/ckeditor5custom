@@ -29,7 +29,7 @@ import SimpleBtn from './_utils/Media/simplebtn'
 import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment';
 import FontSize from '@ckeditor/ckeditor5-font/src/fontsize'
 import FontFamily from '@ckeditor/ckeditor5-font/src/fontfamily'
-import FontColor from '@ckeditor/ckeditor5-font/src/fontcolor'
+import FontColor from './ckeditor5-font/src/fontcolor'
 import FontBackgroundColor from '@ckeditor/ckeditor5-font/src/fontbackgroundcolor'
 import CodeBlock from '@ckeditor/ckeditor5-code-block/src/codeblock'
 import MathType from '@wiris/mathtype-ckeditor5';
