@@ -1,6 +1,6 @@
 {
   "name": "@ckeditor/ckeditor5-build-custom-ntv",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "The classic editor build of CKEditor 5 – the best browser-based rich text editor.",
   "keywords": [
     "ckeditor5-build",
@@ -82,7 +82,6 @@
     "@ckeditor/ckeditor5-special-characters": "^27.0.0",
     "@ckeditor/ckeditor5-undo": "^27.0.0",
     "@ckeditor/ckeditor5-widget": "^27.0.0",
-    "@wiris/mathtype-ckeditor5": "^7.24.4",
-    "ckeditor_bs_grid": "github:tranhanam19999/ckeditor-bs-grid#master"
+    "@wiris/mathtype-ckeditor5": "^7.24.4"
   }
 }
