@@ -12,6 +12,54 @@
 			margin: 20px auto;
 		}
 
+		/* CKEDITOR5 */
+		.ck-content {
+			color: black
+		}
+
+		.ck-content pre {
+			margin-bottom: 18px;
+		}
+
+		.ck-content pre code {
+			font-family: "Roboto", sans-serif;
+			background-color: transparent !important;
+			font-style: normal;
+			font-weight: normal;
+			font-size: 16px;
+			line-height: 25px;
+		}
+
+		.ck-content .image>figcaption {
+			font-style: italic;
+			font-weight: normal;
+			font-size: 15px;
+			line-height: 18px;
+			color: #7B7B7B;
+		}
+
+		.ck-content h3 {
+			font-weight: 700;
+			font-size: 20px;
+			line-height: 24px;
+		}
+
+		.ck-content h2 {
+			font-weight: bold;
+			font-size: 22px;
+			line-height: 30px;
+		}
+
+		.ck-content p {
+			color: black;
+			line-height: 25px;
+			font-size: 16px;
+		}
+
+		.ck-content {
+			min-height: 400px;
+		}
+
 		.simpleGrid {
 			padding: 10px;
 			margin: 1em 0;
@@ -25,13 +73,14 @@
 		.simpleGridCol3 {
 			padding: 10px;
 			margin: 4px;
-
 			background: #FFF;
 			border: solid 1px hsl(0, 0%, 77%);
 		}
 
 		/**************** BLOCK QUOTE ***********************/
+
 		/* BQ1 */
+
 		.ckc-blockquote-1::after {
 			content: "";
 			position: absolute;
@@ -59,6 +108,7 @@
 		}
 
 		/* BQ2 */
+
 		.ckc-blockquote-2 {
 			border-left: none;
 			position: relative;
@@ -78,6 +128,7 @@
 		}
 
 		/* BQ3 */
+
 		.ckc-blockquote-3 {
 			border-left: none;
 			position: relative;
@@ -108,6 +159,7 @@
 		}
 
 		/* BQ4,5,6,7 */
+
 		.ckc-blockquote-4,
 		.ckc-blockquote-5,
 		.ckc-blockquote-6,
@@ -130,6 +182,13 @@
 		.ckc-blockquote-7 {
 			background: #ccc;
 			width: max-content;
+		}
+
+		blockquote {
+			padding: 10px 20px;
+			margin: 0 0 20px;
+			font-size: 17.5px;
+			border-left: 5px solid #eee;
 		}
 
 		/**************** END BLOCK QUOTE ***********************/
