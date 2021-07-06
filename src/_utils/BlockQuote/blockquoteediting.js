@@ -137,7 +137,7 @@ export default class BlockQuoteEditing extends Plugin {
             !schema.checkChild(entry.position, element)
           ) {
             // Added a blockQuote in incorrect place. Unwrap it so the content inside is not lost.
-            writer.unwrap(element);
+            // writer.unwrap(element);
 
             return true;
           } else if (element.is("element")) {
