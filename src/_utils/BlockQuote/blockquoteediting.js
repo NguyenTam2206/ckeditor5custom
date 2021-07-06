@@ -129,7 +129,7 @@ export default class BlockQuoteEditing extends Plugin {
 
           if (element.is("element", "blockQuote") && element.isEmpty) {
             // Added an empty blockQuote - remove it.
-            writer.remove(element);
+            // writer.remove(element);
 
             return true;
           } else if (
@@ -149,7 +149,7 @@ export default class BlockQuoteEditing extends Plugin {
                 child.is("element", "blockQuote") &&
                 !schema.checkChild(writer.createPositionBefore(child), child)
               ) {
-                writer.unwrap(child);
+                // writer.unwrap(child);
 
                 return true;
               }
@@ -160,7 +160,7 @@ export default class BlockQuoteEditing extends Plugin {
 
           if (parent.is("element", "blockQuote") && parent.isEmpty) {
             // Something got removed and now blockQuote is empty. Remove the blockQuote as well.
-            writer.remove(parent);
+            // writer.remove(parent);
 
             return true;
           }
