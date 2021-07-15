@@ -9,7 +9,15 @@
 import Plugin from "@ckeditor/ckeditor5-core/src/plugin";
 import { icons } from "ckeditor5/src/core";
 import ButtonView from "@ckeditor/ckeditor5-ui/src/button/buttonview";
-import col66Icon from "./icons/Col66.svg";
+
+import BQ from "./icons/BQ.svg";
+import BQ1 from "./icons/BQ1.svg";
+import BQ2 from "./icons/BQ2.svg";
+import BQ3 from "./icons/BQ3.svg";
+import BQ4 from "./icons/BQ4.svg";
+import BQ5 from "./icons/BQ5.svg";
+import BQ6 from "./icons/BQ6.svg";
+import BQ7 from "./icons/BQ7.svg";
 
 import ToolbarSeparatorView from "@ckeditor/ckeditor5-ui/src/toolbar/toolbarseparatorview";
 import SplitButtonView from "@ckeditor/ckeditor5-ui/src/dropdown/button/splitbuttonview";
@@ -43,19 +51,19 @@ export default class BlockQuoteUI extends Plugin {
         class: "blockquote",
         model: "blockquote",
         title: "Block Quote",
-        icon: col66Icon
+        icon: BQ
       },
       {
         class: "blockquote_1",
         model: "blockquote_1",
         title: "Block Quote 1",
-        icon: col66Icon
+        icon: BQ
       },
       {
         class: "blockquote_2",
         model: "blockquote_2",
         title: "Block Quote 2",
-        icon: col66Icon
+        icon: BQ
       }
     ];
     const editor = this.editor;
@@ -76,7 +84,7 @@ export default class BlockQuoteUI extends Plugin {
     this._addButton(
       "insertBlockQuote",
       t("Insert BlockQuote"),
-      col66Icon,
+      BQ,
       "BlockQuote"
     );
   }
@@ -85,7 +93,7 @@ export default class BlockQuoteUI extends Plugin {
     this._addButton(
       "insertBlockQuote_1",
       t("Insert BlockQuote_1"),
-      col66Icon,
+      BQ1,
       "BlockQuote_1"
     );
   }
@@ -94,7 +102,7 @@ export default class BlockQuoteUI extends Plugin {
     this._addButton(
       "insertBlockQuote_2",
       t("Insert BlockQuote_2"),
-      col66Icon,
+      BQ2,
       "BlockQuote_2"
     );
   }
@@ -103,7 +111,7 @@ export default class BlockQuoteUI extends Plugin {
     this._addButton(
       "insertBlockQuote_3",
       t("Insert BlockQuote_3"),
-      col66Icon,
+      BQ3,
       "BlockQuote_3"
     );
   }
@@ -112,7 +120,7 @@ export default class BlockQuoteUI extends Plugin {
     this._addButton(
       "insertBlockQuote_4",
       t("Insert BlockQuote_4"),
-      col66Icon,
+      BQ4,
       "BlockQuote_4"
     );
   }
@@ -121,7 +129,7 @@ export default class BlockQuoteUI extends Plugin {
     this._addButton(
       "insertBlockQuote_5",
       t("Insert BlockQuote_5"),
-      col66Icon,
+      BQ5,
       "BlockQuote_5"
     );
   }
@@ -130,7 +138,7 @@ export default class BlockQuoteUI extends Plugin {
     this._addButton(
       "insertBlockQuote_6",
       t("Insert BlockQuote_6"),
-      col66Icon,
+      BQ6,
       "BlockQuote_6"
     );
   }
@@ -139,7 +147,7 @@ export default class BlockQuoteUI extends Plugin {
     this._addButton(
       "insertBlockQuote_7",
       t("Insert BlockQuote_7"),
-      col66Icon,
+      BQ7,
       "BlockQuote_7"
     );
   }
