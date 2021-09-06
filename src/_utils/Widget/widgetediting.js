@@ -56,7 +56,7 @@ export default class WidgetEditing extends Plugin {
 
         return writer.createContainerElement('figure', {
           'widget-id': modelElement.getAttribute('widget-id'),
-          class: 'ntvwidget-figure',
+          class: 'custom-widget-figure',
         })
       },
     })
@@ -65,14 +65,14 @@ export default class WidgetEditing extends Plugin {
     conversion.for('upcast').elementToElement({
       view: {
         name: 'figure',
-        classes: 'ntvwidget-figure',
+        classes: 'custom-widget-figure',
       },
       model: (viewElement, conversionApi) => {
         const modelWriter = conversionApi.writer
 
         return modelWriter.createElement('ntvWidget', {
           'widget-id': viewElement.getAttribute('widget-id'),
-          class: 'ntvwidget-figure',
+          class: 'custom-widget-figure',
         })
       },
     })
@@ -82,7 +82,7 @@ export default class WidgetEditing extends Plugin {
       model: 'ntvWidget',
       view: (modelElement, { writer: viewWriter }) => {
         const section = viewWriter.createEditableElement('figure', {
-          'widget-id': modelElement.getAttribute('widget-id'), class: 'ntvwidget-figure',
+          'widget-id': modelElement.getAttribute('widget-id'), class: 'custom-widget-figure',
         })
 
         return toWidget(section, viewWriter)
@@ -101,7 +101,7 @@ export default class WidgetEditing extends Plugin {
       model: 'ntvWidgetContent',
       view: {
         name: 'p',
-        classes: 'ntvwidget-content',
+        classes: 'custom-widget-name',
       },
     })
   }
