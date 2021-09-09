@@ -15,6 +15,6 @@ export default class Widget extends Plugin {
    * @inheritDoc
    */
   static get pluginName() {
-    return 'NTVWidget'
+    return 'CMSWidget'
   }
 }

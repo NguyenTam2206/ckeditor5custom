@@ -9,7 +9,7 @@ export default class WidgetUI extends Plugin {
    * @inheritDoc
    */
   static get pluginName() {
-    return 'NTVWidgetUI'
+    return 'CMSWidgetUI'
   }
 
   /**
@@ -17,7 +17,7 @@ export default class WidgetUI extends Plugin {
    */
   init() {
     const editor = this.editor
-    editor.ui.componentFactory.add('ntvWidget', (locale) => {
+    editor.ui.componentFactory.add('CMSWidget', (locale) => {
       const widgetButton = new ButtonView(locale)
 
       const localized = 'Chèn Widget'
@@ -38,6 +38,6 @@ export default class WidgetUI extends Plugin {
 
       return widgetButton
     })
-    editor.ui.componentFactory.create('ntvWidget')
+    editor.ui.componentFactory.create('CMSWidget')
   }
 }

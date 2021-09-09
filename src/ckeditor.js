@@ -172,7 +172,7 @@ ClassicEditor.defaultConfig = {
       'indent',
       'outdent',
       '|',
-      'ntvWidget',
+      'CMSWidget',
       'codeBlock',
       'blockQuote',
       'horizontalLine',

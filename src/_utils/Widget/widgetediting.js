@@ -5,7 +5,7 @@ import Widget from '@ckeditor/ckeditor5-widget/src/widget'
 
 export default class WidgetEditing extends Plugin {
   static get pluginName() {
-    return 'NTVWidgetEditing'
+    return 'CMSWidgetEditing'
   }
 
   /**
@@ -28,18 +28,18 @@ export default class WidgetEditing extends Plugin {
 
   _defineSchema() {
     const schema = this.editor.model.schema
-    schema.register('ntvWidget', {
+    schema.register('CMSWidget', {
       isObject: true,
       isBlock: true,
       allowWhere: '$block',
       allowContentOf: '$root',
       allowAttributes: ['widget-id'],
     })
-    schema.register('ntvWidgetContent', {
+    schema.register('CMSWidgetContent', {
       isLimit: true,
       isObject: true,
 
-      allowIn: 'ntvWidget',
+      allowIn: 'CMSWidget',
 
       allowContentOf: '$block',
     })
@@ -50,7 +50,7 @@ export default class WidgetEditing extends Plugin {
 
     // Downcasting model to view
     conversion.for('dataDowncast').elementToElement({
-      model: 'ntvWidget',
+      model: 'CMSWidget',
       view: (modelElement, conversionApi) => {
         const writer = conversionApi.writer
 
@@ -70,7 +70,7 @@ export default class WidgetEditing extends Plugin {
       model: (viewElement, conversionApi) => {
         const modelWriter = conversionApi.writer
 
-        return modelWriter.createElement('ntvWidget', {
+        return modelWriter.createElement('CMSWidget', {
           'widget-id': viewElement.getAttribute('widget-id'),
           class: 'custom-widget-figure',
         })
@@ -79,7 +79,7 @@ export default class WidgetEditing extends Plugin {
 
     // Downcast from model to editing View
     conversion.for('editingDowncast').elementToElement({
-      model: 'ntvWidget',
+      model: 'CMSWidget',
       view: (modelElement, { writer: viewWriter }) => {
         const section = viewWriter.createEditableElement('figure', {
           'widget-id': modelElement.getAttribute('widget-id'), class: 'custom-widget-figure',
@@ -98,7 +98,7 @@ export default class WidgetEditing extends Plugin {
 
     // 2 way covert model and view
     conversion.elementToElement({
-      model: 'ntvWidgetContent',
+      model: 'CMSWidgetContent',
       view: {
         name: 'p',
         classes: 'custom-widget-name',
