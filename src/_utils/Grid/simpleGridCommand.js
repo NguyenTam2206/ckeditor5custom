@@ -32,6 +32,12 @@ export default class InsertSimpleGridCommand extends Command {
       } else if (value == 93) {
         writer.insert(createElement("ck_grid_col_9"), parent, "end");
         writer.insert(createElement("ck_grid_col_3"), parent, "end");
+      } else if (value == 48) {
+        writer.insert(createElement("ck_grid_col_4"), parent, "end");
+        writer.insert(createElement("ck_grid_col_8"), parent, "end");
+      } else if (value == 84) {
+        writer.insert(createElement("ck_grid_col_8"), parent, "end");
+        writer.insert(createElement("ck_grid_col_4"), parent, "end");
       } else if (value == 363) {
         writer.insert(createElement("ck_grid_col_3"), parent, "end");
         writer.insert(createElement("ck_grid_col_6"), parent, "end");
