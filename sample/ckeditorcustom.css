@@ -314,6 +314,7 @@ END SAME FRONT END / ADMIN / CKEDITORCUSTOM SRC
 
 .ck-content p, .ck-content span {
   font-size: 16px;
+  margin-bottom: 16px !important;
 }
 
 .ck-content {
