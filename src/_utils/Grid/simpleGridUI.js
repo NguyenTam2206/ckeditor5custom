@@ -4,6 +4,8 @@ import col444Icon from "./icons/Col444.svg";
 import col66Icon from "./icons/Col66.svg";
 import col93Icon from "./icons/Col93.svg";
 import col39Icon from "./icons/Col39.svg";
+import col48Icon from "./icons/Col48.svg";
+import col84Icon from "./icons/Col84.svg";
 import col363Icon from "./icons/Col363.svg";
 
 import ToolbarSeparatorView from "@ckeditor/ckeditor5-ui/src/toolbar/toolbarseparatorview";
@@ -25,39 +27,52 @@ export default class SimpleGridUI extends Plugin {
         title: "Col Grid 6 6",
         icon: col66Icon
       },
-      // {
-      //     class: "col39",
-      //     model: "col39",
-      //     title: "Col Grid 3 9",
-      //     icon: col39Icon
-      // },
-      // {
-      //     class: "col93",
-      //     model: "col93",
-      //     title: "Col Grid 9 3",
-      //     icon: col93Icon
-      // },
+      {
+        class: "col39",
+        model: "col39",
+        title: "Col Grid 3 9",
+        icon: col39Icon
+      },
+      {
+        class: "col93",
+        model: "col93",
+        title: "Col Grid 9 3",
+        icon: col93Icon
+      },
+      {
+        class: "col48",
+        model: "col84",
+        title: "Col Grid 4 8",
+        icon: col48Icon
+      },
+      {
+        class: "col84",
+        model: "col84",
+        title: "Col Grid 8 4",
+        icon: col84Icon
+      },
       {
         class: "col444",
         model: "col444",
         title: "Col Grid 4 4 4",
         icon: col444Icon
+      },
+      {
+        class: "col363",
+        model: "col363",
+        title: "Col Grid 3 6 3",
+        icon: col363Icon
       }
-      //,
-      // {
-      //     class: "col363",
-      //     model: "col363",
-      //     title: "Col Grid 3 6 3",
-      //     icon: col363Icon
-      // }
     ];
     const editor = this.editor;
     const t = editor.t;
 
     this._addCol66Button();
-    //this._addCol39Button();
-    //this._addCol93Button();
-    //this._addCol363Button();
+    this._addCol39Button();
+    this._addCol93Button();
+    this._addCol48Button();
+    this._addCol84Button();
+    this._addCol363Button();
     this._addCol444Button();
 
     this._addDropdown(options);
@@ -104,6 +119,18 @@ export default class SimpleGridUI extends Plugin {
     const t = this.editor.t;
 
     this._addButton("insertGrid93", t("Insert Grid 9 3"), col93Icon, 93);
+  }
+  //48//
+  _addCol48Button() {
+    const t = this.editor.t;
+
+    this._addButton("insertGrid48", t("Insert Grid 4 8"), col48Icon, 48);
+  }
+  //84//
+  _addCol84Button() {
+    const t = this.editor.t;
+
+    this._addButton("insertGrid84", t("Insert Grid 8 4"), col84Icon, 84);
   }
   //444//
   _addCol444Button() {
@@ -198,10 +225,12 @@ export default class SimpleGridUI extends Plugin {
       // Add separator and eraser buttons to dropdown.
       //buttons.push( new ToolbarSeparatorView() );
       buttons.push(componentFactory.create("insertGrid66"));
-      //buttons.push( componentFactory.create( 'insertGrid39' ) );
-      //buttons.push( componentFactory.create( 'insertGrid93' ) );
+      buttons.push(componentFactory.create("insertGrid39"));
+      buttons.push(componentFactory.create("insertGrid93"));
+      buttons.push(componentFactory.create("insertGrid48"));
+      buttons.push(componentFactory.create("insertGrid84"));
       buttons.push(componentFactory.create("insertGrid444"));
-      //buttons.push( componentFactory.create( 'insertGrid363' ) );
+      buttons.push(componentFactory.create("insertGrid363"));
 
       addToolbarToDropdown(dropdownView, buttons);
 
