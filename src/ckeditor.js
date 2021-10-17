@@ -60,27 +60,29 @@ import SimpleBtnResize from "./_utils/Media/resize/simpleBtnResize";
 import SimpleMediaEmbed from "./_utils/NewMedia/mediaembed";
 import Covid from "./_utils/Covid/covid";
 import BlockQuote from "./_utils/BlockQuote/blockquote";
+import Widget from './_utils/Widget/widget'
 
 export default class ClassicEditor extends ClassicEditorBase {}
 
 // Plugins to include in the build.
 ClassicEditor.builtinPlugins = [
-  Essentials,
-  Autoformat,
-  Bold,
-  Italic,
-  Strikethrough,
-  Subscript,
-  Superscript,
-  Underline,
-  BlockQuote,
-  HorizontalLine,
-  //EasyImage,
-  Heading,
-  Indent,
-  Link,
-  List,
-  TodoList,
+	Essentials,
+	Autoformat,
+	Bold,
+	Italic,
+	Strikethrough,
+	Subscript,
+	Superscript,
+	Underline,
+	BlockQuote,
+	Widget,
+	HorizontalLine,
+	//EasyImage,
+	Heading,
+	Indent,
+	Link,
+	List,
+	TodoList,
 
   Paragraph,
   PasteFromOffice,
@@ -127,106 +129,101 @@ ClassicEditor.defaultConfig = {
   toolbar: {
     items: [
       //'covid',
-      "removeFormat",
-      "|",
-      "undo",
-      "redo",
-      "|",
-      "heading",
-      "|",
-      "alignment",
-      "fontSize",
-      "|",
-      "bold",
-      "italic",
-      "underline",
-      "strikethrough",
-      "|",
-      "fontFamily",
-      "fontColor",
-      "fontBackgroundColor",
-      "|",
-      "simpleBtn",
-      "simpleMedia",
-      "simpleGrid",
-      "|",
-      "fullScreen",
-      "|",
+      'removeFormat',
+      '|',
+      'undo',
+      'redo',
+      '|',
+      'heading',
+      '|',
+      'alignment',
+      'fontSize',
+      '|',
+      'bold',
+      'italic',
+      'underline',
+      'strikethrough',
+      '|',
+      'fontFamily',
+      'fontColor',
+      'fontBackgroundColor',
+      '|',
+      'simpleBtn',
+      'simpleMedia',
+      'simpleGrid',
+      '|',
+      'fullScreen',
+      '|',
 
-      "link",
-      "insertTable",
-      "mediaEmbed",
-      "|",
-      "specialCharacters",
-      "subscript",
-      "superscript",
-      "|",
-      "bulletedList",
-      "numberedList",
-      "todoList",
-      "pageBreak",
-      "|",
-      "indent",
-      "outdent",
-      "|",
-      "codeBlock",
-      "blockQuote",
-      "horizontalLine"
+      'link',
+      'insertTable',
+      'mediaEmbed',
+      '|',
+      'specialCharacters',
+      'subscript',
+      'superscript',
+      '|',
+      'bulletedList',
+      'numberedList',
+      'todoList',
+      'pageBreak',
+      '|',
+      'indent',
+      'outdent',
+      '|',
+      'CMSWidget',
+      'codeBlock',
+      'blockQuote',
+      'horizontalLine',
 
       // '|',
       // 'MathType',
       // 'ChemType'
-    ]
+    ],
   },
   table: {
-    contentToolbar: ["tableColumn", "tableRow", "mergeTableCells"]
+    contentToolbar: ['tableColumn', 'tableRow', 'mergeTableCells'],
   },
   mediaEmbed: {
-    previewsInData: true
+    previewsInData: true,
     // extraProviders: [{
     // 	name: 'allow-all',
     // 	url: /^.+/
     // }]
   },
   simpleBtn: {
-    styles: ["side", "alignLeft", "alignCenter", "alignRight"],
+    styles: ['side', 'alignLeft', 'alignCenter', 'alignRight'],
     toolbar: [
-      "simpleBtnStyle:side",
-      "simpleBtnStyle:alignLeft",
-      "simpleBtnStyle:alignCenter",
-      "simpleBtnStyle:alignRight",
-      "simpleBtnResize"
-    ]
+      'simpleBtnStyle:side',
+      'simpleBtnStyle:alignLeft',
+      'simpleBtnStyle:alignCenter',
+      'simpleBtnStyle:alignRight',
+      'simpleBtnResize',
+    ],
   },
   image: {
-    styles: ["alignLeft", "alignCenter", "alignRight"],
-    resizeUnit: "%",
+    styles: ['alignLeft', 'alignCenter', 'alignRight'],
+    resizeUnit: '%',
     resizeOptions: [
       {
-        name: "imageResize:original",
-        value: null
+        name: 'imageResize:original',
+        value: null,
       },
       {
-        name: "imageResize:25",
-        value: "25"
+        name: 'imageResize:25',
+        value: '25',
       },
       {
-        name: "imageResize:50",
-        value: "50"
+        name: 'imageResize:50',
+        value: '50',
       },
       {
-        name: "imageResize:75",
-        value: "75"
-      }
+        name: 'imageResize:75',
+        value: '75',
+      },
     ],
-    toolbar: [
-      "imageStyle:alignLeft",
-      "imageStyle:alignCenter",
-      "imageStyle:alignRight",
-      "|",
-      "imageResize"
-    ]
+    toolbar: ['imageStyle:alignLeft', 'imageStyle:alignCenter', 'imageStyle:alignRight', '|', 'imageResize'],
   },
   // This value must be kept in sync with the language defined in webpack.config.js.
-  language: "en"
-};
+  language: 'en',
+}
