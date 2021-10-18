@@ -18,8 +18,9 @@
 
 <div id="editor">
 	<h2>About CKEditor&nbsp;5</h2>
-
-	<p>This is <a href="https://ckeditor.com">CKEditor&nbsp;5</a>.</p>
+	<figure class="custom-widget-figure" widget-id="abc123" widget-name="widget name">
+		<p class="custom-widget-name">Widget "abc"</p>
+	</figure>
 </div>
 
 <h2>In German</h2>
@@ -36,6 +37,7 @@
 	ClassicEditor.create( document.querySelector( '#editor' ) )
 		.then( editor => {
 			window.editor = editor;
+			console.log( Array.from( editor.ui.componentFactory.names() ) );
 		} )
 		.catch( error => {
 			console.error( 'There was a problem initializing the editor.', error );
