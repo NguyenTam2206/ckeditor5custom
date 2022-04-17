@@ -312,14 +312,9 @@ END SAME FRONT END / ADMIN / CKEDITORCUSTOM SRC
 
 /* default font-size */
 
-.ck-content p, .ck-content span {
-  font-size: 16px;
-  margin-bottom: 16px !important;
-}
-
 .ck-content {
+  color: black;
   min-height: 400px;
-  color: black
 }
 
 .ck_grid_wraper {

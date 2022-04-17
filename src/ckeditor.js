@@ -30,7 +30,6 @@ import Alignment from "@ckeditor/ckeditor5-alignment/src/alignment";
 import FontFamily from "@ckeditor/ckeditor5-font/src/fontfamily";
 import FontBackgroundColor from "@ckeditor/ckeditor5-font/src/fontbackgroundcolor";
 import CodeBlock from "@ckeditor/ckeditor5-code-block/src/codeblock";
-import MathType from "@wiris/mathtype-ckeditor5";
 import HorizontalLine from "@ckeditor/ckeditor5-horizontal-line/src/horizontalline";
 import SpecialCharacters from "@ckeditor/ckeditor5-special-characters/src/specialcharacters";
 // A plugin that combines a basic set of special characters.
@@ -60,7 +59,8 @@ import SimpleBtnResize from "./_utils/Media/resize/simpleBtnResize";
 import SimpleMediaEmbed from "./_utils/NewMedia/mediaembed";
 import Covid from "./_utils/Covid/covid";
 import BlockQuote from "./_utils/BlockQuote/blockquote";
-import Widget from './_utils/Widget/widget'
+import Widget from "./_utils/Widget/widget";
+import Mathematics from "./ckeditor5-math/src/math";
 
 export default class ClassicEditor extends ClassicEditorBase {}
 
@@ -97,11 +97,11 @@ ClassicEditor.builtinPlugins = [
   FontFamily,
   FontColor,
   FontBackgroundColor,
+  Mathematics,
   CodeBlock,
   SpecialCharacters,
   SpecialCharactersEssentials,
   PageBreak,
-  //MathType,
   FullScreen,
 
   //Note: Simplte Btn toolbar conflict with imagetoolbar
@@ -122,109 +122,121 @@ ClassicEditor.builtinPlugins = [
   SimpleMedia,
   //MediaEmbed,
   SimpleMediaEmbed,
-  Covid,
-]
+  Covid
+];
 
 // Editor configuration.
 ClassicEditor.defaultConfig = {
   toolbar: {
     items: [
       //'covid',
-      'removeFormat',
-      '|',
-      'undo',
-      'redo',
-      '|',
-      'heading',
-      '|',
-      'alignment',
-      'fontSize',
-      '|',
-      'bold',
-      'italic',
-      'underline',
-      'strikethrough',
-      '|',
-      'fontFamily',
-      'fontColor',
-      'fontBackgroundColor',
-      '|',
-      'simpleBtn',
-      'simpleMedia',
-      'simpleGrid',
-      '|',
-      'fullScreen',
-      '|',
+      "removeFormat",
+      "|",
+      "undo",
+      "redo",
+      "|",
+      "heading",
+      "|",
+      "alignment",
+      "fontSize",
+      "|",
+      "bold",
+      "italic",
+      "underline",
+      "strikethrough",
+      "|",
+      "fontFamily",
+      "fontColor",
+      "fontBackgroundColor",
+      "|",
+      "simpleBtn",
+      "simpleMedia",
+      "simpleGrid",
+      "|",
+      "fullScreen",
+      "|",
 
-      'link',
-      'insertTable',
-      'mediaEmbed',
-      '|',
-      'specialCharacters',
-      'subscript',
-      'superscript',
-      '|',
-      'bulletedList',
-      'numberedList',
-      'todoList',
-      'pageBreak',
-      '|',
-      'indent',
-      'outdent',
-      '|',
-      'CMSWidget',
-      'codeBlock',
-      'blockQuote',
-      'horizontalLine',
-
-      // '|',
-      // 'MathType',
-      // 'ChemType'
-    ],
+      "link",
+      "insertTable",
+      "mediaEmbed",
+      "|",
+      "math",
+      "specialCharacters",
+      "subscript",
+      "superscript",
+      "|",
+      "bulletedList",
+      "numberedList",
+      "todoList",
+      "pageBreak",
+      "|",
+      "indent",
+      "outdent",
+      "|",
+      "CMSWidget",
+      "codeBlock",
+      "blockQuote",
+      "horizontalLine"
+    ]
+  },
+  math: {
+    engine: "mathjax", // or katex or function. E.g. (equation, element, display) => { ... }
+    lazyLoad: undefined, // async () => { ... }, called once before rendering first equation if engine doesn't exist. After resolving promise, plugin renders equations.
+    outputType: "script", // or span
+    forceOutputType: false, // forces output to use outputType
+    enablePreview: true, // Enable preview view
+    previewClassName: [], // Class names to add to previews
+    popupClassName: [] // Class names to add to math popup balloon
   },
   table: {
-    contentToolbar: ['tableColumn', 'tableRow', 'mergeTableCells'],
+    contentToolbar: ["tableColumn", "tableRow", "mergeTableCells"]
   },
   mediaEmbed: {
-    previewsInData: true,
+    previewsInData: true
     // extraProviders: [{
     // 	name: 'allow-all',
     // 	url: /^.+/
     // }]
   },
   simpleBtn: {
-    styles: ['side', 'alignLeft', 'alignCenter', 'alignRight'],
+    styles: ["side", "alignLeft", "alignCenter", "alignRight"],
     toolbar: [
-      'simpleBtnStyle:side',
-      'simpleBtnStyle:alignLeft',
-      'simpleBtnStyle:alignCenter',
-      'simpleBtnStyle:alignRight',
-      'simpleBtnResize',
-    ],
+      "simpleBtnStyle:side",
+      "simpleBtnStyle:alignLeft",
+      "simpleBtnStyle:alignCenter",
+      "simpleBtnStyle:alignRight",
+      "simpleBtnResize"
+    ]
   },
   image: {
-    styles: ['alignLeft', 'alignCenter', 'alignRight'],
-    resizeUnit: '%',
+    styles: ["alignLeft", "alignCenter", "alignRight"],
+    resizeUnit: "%",
     resizeOptions: [
       {
-        name: 'imageResize:original',
-        value: null,
+        name: "imageResize:original",
+        value: null
       },
       {
-        name: 'imageResize:25',
-        value: '25',
+        name: "imageResize:25",
+        value: "25"
       },
       {
-        name: 'imageResize:50',
-        value: '50',
+        name: "imageResize:50",
+        value: "50"
       },
       {
-        name: 'imageResize:75',
-        value: '75',
-      },
+        name: "imageResize:75",
+        value: "75"
+      }
     ],
-    toolbar: ['imageStyle:alignLeft', 'imageStyle:alignCenter', 'imageStyle:alignRight', '|', 'imageResize'],
+    toolbar: [
+      "imageStyle:alignLeft",
+      "imageStyle:alignCenter",
+      "imageStyle:alignRight",
+      "|",
+      "imageResize"
+    ]
   },
   // This value must be kept in sync with the language defined in webpack.config.js.
-  language: 'en',
-}
+  language: "en"
+};

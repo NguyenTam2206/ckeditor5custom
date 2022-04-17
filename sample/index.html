@@ -18,14 +18,17 @@
 <body>
 
 	<h1>CKEditor 5 – classic editor build – development sample</h1>
-	<button onclick="check()"">hinh1</button>
-<button onclick=" check2()">hin2h</button>
+	<button onclick="check()">hinh1</button>
+	<button onclick="check2()">hin2h</button>
 	<button onclick="check3()">hinh3</button>
 	<button onclick="console.log(editor.getData())">Data</button>
 	<div class="container">
 		<div id="editor">
 		</div>
 	</div>
+	<!-- script for Math -->
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
 
 	<script src="../build/ckeditor.js"></script>
@@ -78,7 +81,7 @@
 			// The view-to-model converter converting a view <div> with all its attributes to the model.
 			editor.conversion.for('upcast').elementToElement({
 				view: 'blockquote',
-				model: (viewElement, {writer: modelWriter}) => {
+				model: (viewElement, { writer: modelWriter }) => {
 					return modelWriter.createElement('blockquote', viewElement.getAttributes());
 				}
 			});
@@ -114,6 +117,12 @@
 		}
 		ClassicEditor.create(document.querySelector('#editor'), {
 			extraPlugins: [ConvertBQAttributes],
+			math: {
+				engine: 'mathjax',
+				outputType: 'script',
+				forceOutputType: false,
+				enablePreview: true
+			}
 		})
 			.then(editor => {
 				window.editor = editor;
